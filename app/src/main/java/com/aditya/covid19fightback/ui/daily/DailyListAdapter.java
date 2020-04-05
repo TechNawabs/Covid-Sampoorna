@@ -13,9 +13,6 @@ import com.aditya.covid19fightback.R;
 import com.aditya.covid19fightback.data.model.daily.DailyData;
 import com.aditya.covid19fightback.data.model.daily.DailyStates;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,7 +20,6 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Dail
 
     private DailySelectedListener dailySelectedListener;
     private DailyStates dailyStates = new DailyStates();
-//    private List<DailyStates> dailyStatesList = new ArrayList<>();
 
     public DailyListAdapter(DailyViewModel dailyViewModel, LifecycleOwner lifecycleOwner,
                             DailySelectedListener dailySelectedListener) {

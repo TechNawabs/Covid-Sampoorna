@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.aditya.covid19fightback.di.util.ViewModelKey;
 import com.aditya.covid19fightback.ui.daily.DailyViewModel;
+import com.aditya.covid19fightback.ui.national.NationalViewModel;
 import com.aditya.covid19fightback.viewmodel.ViewModelFactory;
 
 import dagger.Binds;
@@ -21,4 +22,13 @@ public abstract class ViewModelModule {
 
     @Binds
     abstract ViewModelProvider.Factory bindTrendingRepositoryResponseFactory(ViewModelFactory viewModelFactory);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NationalViewModel.class)
+    abstract ViewModel bindNationalRepositoryResponse(NationalViewModel nationalViewModel);
+
+    @Binds
+    abstract ViewModelProvider.Factory bindNationalRepositoryResponseFactory(ViewModelFactory viewModelFactory);
+
 }

@@ -66,7 +66,7 @@ public class DailyListFragment extends BaseFragment implements DailySelectedList
                 .observe(getViewLifecycleOwner(), isError -> {
                     if (isError) {
                         errorTextView.setVisibility(View.VISIBLE);
-                        errorTextView.setText("Some Error ocuured!");
+                        errorTextView.setText("Some Error occurred!");
                         recyclerView.setItemViewCacheSize(View.GONE);
                         shimmerFrameLayout.stopShimmer();
 //                        shimmerFrameLayout.setVisibility(View.GONE);

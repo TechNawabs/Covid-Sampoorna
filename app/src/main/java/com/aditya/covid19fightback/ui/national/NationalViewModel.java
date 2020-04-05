@@ -6,18 +6,19 @@ import androidx.lifecycle.ViewModel;
 import com.aditya.covid19fightback.data.model.national.NationalTimeStats;
 import com.aditya.covid19fightback.data.rest.national.NationalRepository;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class NationalViewModel extends ViewModel {
 
     private final NationalRepository nationalRepository;
     private CompositeDisposable compositeDisposable;
 
-    private final MutableLiveData<List<NationalTimeStats>> nationalTimeStats = new MutableLiveData<List<NationalTimeStats>>();
+    private final MutableLiveData<NationalTimeStats> nationalTimeResponse = new MutableLiveData<NationalTimeStats>();
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
@@ -28,8 +29,8 @@ public class NationalViewModel extends ViewModel {
         fetchNationalTimeStat();
     }
 
-    public MutableLiveData<List<NationalTimeStats>> getNationalResponse() {
-        return nationalTimeStats;
+    public MutableLiveData<NationalTimeStats> getNationalResponse() {
+        return nationalTimeResponse;
     }
 
     public MutableLiveData<Boolean> getRepoLoadError() {
@@ -41,7 +42,33 @@ public class NationalViewModel extends ViewModel {
     }
 
     public void fetchNationalTimeStat() {
-//        loading.setValue(true);
-//        compositeDisposable.add();
+        loading.setValue(true);
+        compositeDisposable.add(nationalRepository.loadNationalTimeStats()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<NationalTimeStats>() {
+                    @Override
+                    public void onSuccess(NationalTimeStats nationalTimeStats) {
+                        repoLoadError.setValue(false);
+                        nationalTimeResponse.setValue(nationalTimeStats);
+                        loading.setValue(false);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        repoLoadError.setValue(true);
+                        loading.setValue(false);
+                    }
+                }));
     }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (compositeDisposable != null) {
+            compositeDisposable.clear();
+            compositeDisposable = null;
+        }
+    }
+
 }

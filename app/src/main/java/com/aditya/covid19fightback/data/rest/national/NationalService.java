@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 public interface NationalService {
 
     @GET("data.json")
-    Single<List<NationalTimeStats>> loadNationalTimeStat();
+    Single<NationalTimeStats> loadNationalTimeStat();
 
 }

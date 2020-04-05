@@ -2,8 +2,6 @@ package com.aditya.covid19fightback.data.rest.national;
 
 import com.aditya.covid19fightback.data.model.national.NationalTimeStats;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import io.reactivex.Single;
@@ -17,7 +15,7 @@ public class NationalRepository {
         this.nationalService = nationalService;
     }
 
-    public Single<List<NationalTimeStats>> loadNationalTimeStats() {
+    public Single<NationalTimeStats> loadNationalTimeStats() {
         return nationalService.loadNationalTimeStat();
     }
 

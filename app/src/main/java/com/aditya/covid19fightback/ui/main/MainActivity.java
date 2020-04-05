@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.aditya.covid19fightback.R;
 import com.aditya.covid19fightback.base.BaseActivity;
 import com.aditya.covid19fightback.ui.daily.DailyListFragment;
+import com.aditya.covid19fightback.ui.national.NationalListFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -21,6 +22,8 @@ public class MainActivity extends BaseActivity {
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.screenContainer, new DailyListFragment()).commit();
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.screenContainer, new NationalListFragment()).commit();
         }
     }
 }
