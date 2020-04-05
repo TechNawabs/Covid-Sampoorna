@@ -17,7 +17,7 @@ public class DailyRepository {
         this.dailyService = dailyService;
     }
 
-    public Single<List<DailyStates>> loadDailyStats() {
+    public Single<DailyStates> loadDailyStats() {
         return dailyService.loadDailyStat();
     }
 

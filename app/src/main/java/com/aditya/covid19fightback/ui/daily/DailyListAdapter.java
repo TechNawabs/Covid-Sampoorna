@@ -10,6 +10,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aditya.covid19fightback.R;
+import com.aditya.covid19fightback.data.model.daily.DailyData;
 import com.aditya.covid19fightback.data.model.daily.DailyStates;
 
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ import butterknife.ButterKnife;
 public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.DailyListViewHolder> {
 
     private DailySelectedListener dailySelectedListener;
-    private List<DailyStates> dailyStatesList = new ArrayList<>();
+    private DailyStates dailyStates = new DailyStates();
+//    private List<DailyStates> dailyStatesList = new ArrayList<>();
 
     public DailyListAdapter(DailyViewModel dailyViewModel, LifecycleOwner lifecycleOwner,
                             DailySelectedListener dailySelectedListener) {
@@ -29,7 +31,7 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Dail
         dailyViewModel.getDailyResponse()
                 .observe(lifecycleOwner, dailyStates -> {
                     if(dailyStates != null) {
-                        dailyStatesList = dailyStates;
+                        this.dailyStates.setDailyStates(dailyStates.getDailyStates());
                         notifyDataSetChanged();
                     }
                 });
@@ -45,18 +47,20 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Dail
 
     @Override
     public void onBindViewHolder(@NonNull DailyListViewHolder holder, int position) {
-        holder.bind(dailyStatesList.get(position));
+        holder.bind(dailyStates.getDailyStates().get(position));
     }
 
     @Override
     public int getItemCount() {
-        return dailyStatesList.size();
+        return (dailyStates != null && dailyStates.getDailyStates() != null)
+                ? dailyStates.getDailyStates().size()
+                : 0;
     }
 
 
     static class DailyListViewHolder extends RecyclerView.ViewHolder {
 
-        private DailyStates dailyStates;
+        private DailyData dailyData;
         @BindView(R.id.anTitle) TextView anTextView;
         @BindView(R.id.apTitle) TextView apTextView;
         @BindView(R.id.arTitle) TextView arTextView;
@@ -74,24 +78,24 @@ public class DailyListAdapter extends RecyclerView.Adapter<DailyListAdapter.Dail
                 @Override
                 public void onClick(View v) {
                     if (dailySelectedListener != null) {
-                        dailySelectedListener.onDailyStatSelected(dailyStates);
+                        dailySelectedListener.onDailyStatSelected(dailyData);
 
                     }
                 }
             });
         }
 
-        void bind(@NonNull DailyStates dailyStates) {
-            this.dailyStates = dailyStates;
-            if(this.dailyStates != null) {
-                this.anTextView.setText(this.dailyStates.getAn());
-                this.apTextView.setText(this.dailyStates.getAp());
-                this.arTextView.setText(this.dailyStates.getAr());
-                this.asTextView.setText(this.dailyStates.getAs());
-                this.brTextView.setText(this.dailyStates.getBr());
-                this.chTextView.setText(this.dailyStates.getCh());
-                this.ctTextView.setText(this.dailyStates.getCt());
-                this.dateTextView.setText(this.dailyStates.getDate());
+        void bind(@NonNull DailyData dailyData) {
+            this.dailyData = dailyData;
+            if(this.dailyData != null) {
+                this.anTextView.setText(this.dailyData.getAn());
+                this.apTextView.setText(this.dailyData.getAp());
+                this.arTextView.setText(this.dailyData.getAr());
+                this.asTextView.setText(this.dailyData.getAs());
+                this.brTextView.setText(this.dailyData.getBr());
+                this.chTextView.setText(this.dailyData.getCh());
+                this.ctTextView.setText(this.dailyData.getCt());
+                this.dateTextView.setText(this.dailyData.getDate());
             }
         }
 

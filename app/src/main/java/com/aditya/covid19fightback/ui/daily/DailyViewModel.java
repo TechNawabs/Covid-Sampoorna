@@ -21,7 +21,7 @@ public class DailyViewModel extends ViewModel {
     private final DailyRepository dailyRepository;
     private CompositeDisposable compositeDisposable;
 
-    private final MutableLiveData<List<DailyStates>> dailyResponse = new MutableLiveData<List<DailyStates>>();
+    private final MutableLiveData<DailyStates> dailyResponse = new MutableLiveData<DailyStates>();
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
@@ -32,7 +32,7 @@ public class DailyViewModel extends ViewModel {
         fetchDailyRepositoryResponse();
     }
 
-    public MutableLiveData<List<DailyStates>> getDailyResponse() {
+    public MutableLiveData<DailyStates> getDailyResponse() {
         return dailyResponse;
     }
 
@@ -49,9 +49,9 @@ public class DailyViewModel extends ViewModel {
         compositeDisposable.add(dailyRepository.loadDailyStats()
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribeWith(new DisposableSingleObserver<List<DailyStates>>() {
+        .subscribeWith(new DisposableSingleObserver<DailyStates>() {
             @Override
-            public void onSuccess(List<DailyStates> dailyStates) {
+            public void onSuccess(DailyStates dailyStates) {
                 repoLoadError.setValue(false);
                 dailyResponse.setValue(dailyStates);
                 loading.setValue(false);

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aditya.covid19fightback.R;
 import com.aditya.covid19fightback.base.BaseFragment;
+import com.aditya.covid19fightback.data.model.daily.DailyData;
 import com.aditya.covid19fightback.data.model.daily.DailyStates;
 import com.aditya.covid19fightback.viewmodel.ViewModelFactory;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -43,15 +44,14 @@ public class DailyListFragment extends BaseFragment implements DailySelectedList
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         dailyViewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(DailyViewModel.class);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(new DailyListAdapter(dailyViewModel, this, this));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         observableViewModel();
     }
 
     @Override
-    public void onDailyStatSelected(DailyStates dailyStat) {
-
+    public void onDailyStatSelected(DailyData dailyStat) {
         Log.d(TAG,"onDailyStatSelected");
     }
 
@@ -68,17 +68,21 @@ public class DailyListFragment extends BaseFragment implements DailySelectedList
                         errorTextView.setVisibility(View.VISIBLE);
                         errorTextView.setText("Some Error ocuured!");
                         recyclerView.setItemViewCacheSize(View.GONE);
-                        shimmerFrameLayout.setVisibility(View.GONE);
+                        shimmerFrameLayout.stopShimmer();
+//                        shimmerFrameLayout.setVisibility(View.GONE);
                     } else {
                         errorTextView.setVisibility(View.GONE);
+                        shimmerFrameLayout.startShimmer();
                     }
                 });
         dailyViewModel.getLoading().observe(getViewLifecycleOwner(), isLoading -> {
             if(isLoading != null) {
-                shimmerFrameLayout.setVisibility(isLoading?View.VISIBLE:View.GONE);
                 if(isLoading) {
                     errorTextView.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.GONE);
+                    shimmerFrameLayout.startShimmer();
+                } else {
+                    shimmerFrameLayout.stopShimmer();
                 }
             }
         });
