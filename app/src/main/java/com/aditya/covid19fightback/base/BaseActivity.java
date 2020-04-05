@@ -17,9 +17,6 @@ public abstract class BaseActivity extends DaggerAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layoutRes());
-//        if(getSupportActionBar() != null) {
-//            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        }
         ButterKnife.bind(this);
     }
 }
