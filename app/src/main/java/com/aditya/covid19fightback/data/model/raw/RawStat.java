@@ -7,13 +7,13 @@ import java.util.List;
 public class RawStat {
 
     @SerializedName("raw_data")
-    private List<RawStat> rawStatList;
+    private List<RawData> rawStatList;
 
-    public List<RawStat> getRawStatList() {
+    public List<RawData> getRawStatList() {
         return rawStatList;
     }
 
-    public void setRawStatList(List<RawStat> rawStatList) {
+    public void setRawStatList(List<RawData> rawStatList) {
         this.rawStatList = rawStatList;
     }
 }

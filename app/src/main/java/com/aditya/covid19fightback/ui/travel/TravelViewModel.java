@@ -6,18 +6,19 @@ import androidx.lifecycle.ViewModel;
 import com.aditya.covid19fightback.data.model.travel.TravelStat;
 import com.aditya.covid19fightback.data.rest.travel.TravelRepository;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class TravelViewModel extends ViewModel {
 
     private final TravelRepository travelRepository;
     private CompositeDisposable compositeDisposable;
 
-    private final MutableLiveData<List<TravelStat>> travelStat = new MutableLiveData<List<TravelStat>>();
+    private final MutableLiveData<TravelStat> travelResponse = new MutableLiveData<TravelStat>();
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
@@ -28,8 +29,8 @@ public class TravelViewModel extends ViewModel {
         fetchTravelStat();
     }
 
-    public MutableLiveData<List<TravelStat>> getTravelStatResponse() {
-        return travelStat;
+    public MutableLiveData<TravelStat> getTravelStatResponse() {
+        return travelResponse;
     }
 
     public MutableLiveData<Boolean> getRepoLoadError() {
@@ -41,8 +42,24 @@ public class TravelViewModel extends ViewModel {
     }
 
     public void fetchTravelStat() {
-//        loading.setValue(true);
-//        compositeDisposable.add();
+        loading.setValue(true);
+        compositeDisposable.add(travelRepository.loadTravelStats()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<TravelStat>() {
+                    @Override
+                    public void onSuccess(TravelStat travelStat) {
+                        repoLoadError.setValue(false);
+                        travelResponse.setValue(travelStat);
+                        loading.setValue(false);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        repoLoadError.setValue(true);
+                        loading.setValue(false);
+                    }
+                }));
     }
 
 }

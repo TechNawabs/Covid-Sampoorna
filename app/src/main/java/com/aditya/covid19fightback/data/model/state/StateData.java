@@ -27,4 +27,14 @@ public class StateData {
         this.districtData = districtData;
     }
 
+    public long getDistrictsConfirmedCases() {
+        long res = 0;
+        if(districtData != null && districtData.size() > 0) {
+            for (DistrictData district: districtData) {
+                res += district.getConfirmed();
+            }
+        }
+        return res;
+    }
+
 }

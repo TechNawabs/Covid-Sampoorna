@@ -1,5 +1,6 @@
 package com.aditya.covid19fightback.data.rest.state;
 
+import com.aditya.covid19fightback.data.model.state.StateData;
 import com.aditya.covid19fightback.data.model.state.StateStat;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import retrofit2.http.GET;
 
 public interface StateService {
 
-    @GET("states_daily.json")
-    Single<StateStat> loadStateStat();
+    @GET("v2/state_district_wise.json")
+    Single<List<StateData>> loadStateStat();
 
 }
