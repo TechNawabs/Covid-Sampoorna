@@ -8,6 +8,7 @@ import com.aditya.covid19fightback.ui.daily.DailyViewModel;
 import com.aditya.covid19fightback.ui.national.NationalViewModel;
 import com.aditya.covid19fightback.ui.raw.RawViewModel;
 import com.aditya.covid19fightback.ui.state.StateViewModel;
+import com.aditya.covid19fightback.ui.travel.TravelViewModel;
 import com.aditya.covid19fightback.viewmodel.ViewModelFactory;
 
 import dagger.Binds;
@@ -50,6 +51,15 @@ public abstract class ViewModelModule {
 
     @Binds
     abstract ViewModelProvider.Factory bindStateRepositoryResponseFactory(
+            ViewModelFactory viewModelFactory);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TravelViewModel.class)
+    abstract ViewModel bindTravelRepositoryResponse(TravelViewModel travelViewModel);
+
+    @Binds
+    abstract ViewModelProvider.Factory bindTravelRepositoryResponseFactory(
             ViewModelFactory viewModelFactory);
 
 }

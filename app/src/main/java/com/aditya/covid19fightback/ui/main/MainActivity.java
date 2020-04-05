@@ -29,10 +29,10 @@ public class MainActivity extends BaseActivity {
 //                    .add(R.id.screenContainer, new NationalListFragment()).commit();
 //            getSupportFragmentManager().beginTransaction()
 //                    .add(R.id.screenContainer, new RawListFragment()).commit();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.screenContainer, new StateListFragment()).commit();
 //            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.screenContainer, new TravelListFragment()).commit();
+//                    .add(R.id.screenContainer, new StateListFragment()).commit();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.screenContainer, new TravelListFragment()).commit();
         }
     }
 }
