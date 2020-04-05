@@ -1,6 +1,6 @@
 package com.aditya.covid19fightback.data.rest.state;
 
-import com.aditya.covid19fightback.data.model.state.State;
+import com.aditya.covid19fightback.data.model.state.StateStat;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class StateRepository {
         this.stateService = stateService;
     }
 
-    public Single<List<State>> loadStateStats() {
+    public Single<StateStat> loadStateStats() {
         return stateService.loadStateStat();
     }
 

@@ -3,7 +3,7 @@ package com.aditya.covid19fightback.ui.raw;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.aditya.covid19fightback.data.model.raw.RawData;
+import com.aditya.covid19fightback.data.model.raw.RawStat;
 import com.aditya.covid19fightback.data.rest.raw.RawRepository;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class RawViewModel extends ViewModel {
     private final RawRepository rawRepository;
     private CompositeDisposable compositeDisposable;
 
-    private final MutableLiveData<List<RawData>> rawDataStat = new MutableLiveData<List<RawData>>();
+    private final MutableLiveData<List<RawStat>> rawDataStat = new MutableLiveData<List<RawStat>>();
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
@@ -28,7 +28,7 @@ public class RawViewModel extends ViewModel {
         fetchRawData();
     }
 
-    public MutableLiveData<List<RawData>> getRawResponse() {
+    public MutableLiveData<List<RawStat>> getRawResponse() {
         return rawDataStat;
     }
 

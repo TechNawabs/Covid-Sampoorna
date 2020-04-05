@@ -1,10 +1,16 @@
 package com.aditya.covid19fightback.data.model.state;
 
+import com.google.gson.annotations.SerializedName;
+
 public class DistrictData {
 
+    @SerializedName("district")
     private String district;
+    @SerializedName("confirmed")
     private long confirmed;
-    private String lastupdatedtime;
+    @SerializedName("lastupdatedtime")
+    private String lastUpdatedTime;
+    @SerializedName("delta")
     private Delta delta;
 
     public String getDistrict() {
@@ -23,12 +29,12 @@ public class DistrictData {
         this.confirmed = confirmed;
     }
 
-    public String getLastupdatedtime() {
-        return lastupdatedtime;
+    public String getLastUpdatedTime() {
+        return lastUpdatedTime;
     }
 
-    public void setLastupdatedtime(String lastupdatedtime) {
-        this.lastupdatedtime = lastupdatedtime;
+    public void setLastUpdatedTime(String lastUpdatedTime) {
+        this.lastUpdatedTime = lastUpdatedTime;
     }
 
     public Delta getDelta() {

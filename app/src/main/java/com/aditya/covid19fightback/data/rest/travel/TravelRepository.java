@@ -1,6 +1,6 @@
 package com.aditya.covid19fightback.data.rest.travel;
 
-import com.aditya.covid19fightback.data.model.travel.Travel;
+import com.aditya.covid19fightback.data.model.travel.TravelStat;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class TravelRepository {
         this.travelService = travelService;
     }
 
-    public Single<List<Travel>> loadTravelStats() {
+    public Single<TravelStat> loadTravelStats() {
         return travelService.loadTravelStat();
     }
 

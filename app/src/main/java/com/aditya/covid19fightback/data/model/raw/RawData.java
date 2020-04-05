@@ -1,98 +1,120 @@
 package com.aditya.covid19fightback.data.model.raw;
 
+import com.google.gson.annotations.SerializedName;
+
 public class RawData {
 
-    private String agebracket;
-    private String backupnotes;
-    private String contractedfromwhichpatientsuspected;
-    private String currentstatus;
-    private String dateannounced;
-    private String detectedcity;
-    private String detecteddistrict;
-    private String detectedstate;
-    private String estimatedonsetdate;
+    @SerializedName("agebracket")
+    private String ageBracket;
+    @SerializedName("backupnotes")
+    private String backupNotes;
+    @SerializedName("contractedfromwhichpatientsuspected")
+    private String contractedFromWhichPatientSuspected;
+    @SerializedName("currentstatus")
+    private String currentStatus;
+    @SerializedName("dateannounced")
+    private String dateAnnounced;
+    @SerializedName("detectedcity")
+    private String detectedCity;
+    @SerializedName("detecteddistrict")
+    private String detectedDistrict;
+    @SerializedName("detectedstate")
+    private String detectedState;
+    @SerializedName("estimatedonsetdate")
+    private String estimatedOnSetDate;
+    @SerializedName("gender")
     private String gender;
+    @SerializedName("nationality")
     private String nationality;
+    @SerializedName("notes")
     private String notes;
-    private String patientnumber;
+    @SerializedName("patientnumber")
+    private String patientNumber;
+    @SerializedName("source1")
     private String source1;
+    @SerializedName("source2")
     private String source2;
+    @SerializedName("source3")
     private String source3;
-    private String statecode;
-    private String statepatientnumber;
-    private String statuschangedate;
-    private String typeoftransmission;
+    @SerializedName("statecode")
+    private String stateCode;
+    @SerializedName("statepatientnumber")
+    private String statePatientNumber;
+    @SerializedName("statuschangedate")
+    private String statusChangeDate;
+    @SerializedName("typeoftransmission")
+    private String typeOfTransmission;
 
-    public String getAgebracket() {
-        return agebracket;
+    public String getAgeBracket() {
+        return ageBracket;
     }
 
-    public void setAgebracket(String agebracket) {
-        this.agebracket = agebracket;
+    public void setAgeBracket(String ageBracket) {
+        this.ageBracket = ageBracket;
     }
 
-    public String getBackupnotes() {
-        return backupnotes;
+    public String getBackupNotes() {
+        return backupNotes;
     }
 
-    public void setBackupnotes(String backupnotes) {
-        this.backupnotes = backupnotes;
+    public void setBackupNotes(String backupNotes) {
+        this.backupNotes = backupNotes;
     }
 
-    public String getContractedfromwhichpatientsuspected() {
-        return contractedfromwhichpatientsuspected;
+    public String getContractedFromWhichPatientSuspected() {
+        return contractedFromWhichPatientSuspected;
     }
 
-    public void setContractedfromwhichpatientsuspected(String contractedfromwhichpatientsuspected) {
-        this.contractedfromwhichpatientsuspected = contractedfromwhichpatientsuspected;
+    public void setContractedFromWhichPatientSuspected(String contractedFromWhichPatientSuspected) {
+        this.contractedFromWhichPatientSuspected = contractedFromWhichPatientSuspected;
     }
 
-    public String getCurrentstatus() {
-        return currentstatus;
+    public String getCurrentStatus() {
+        return currentStatus;
     }
 
-    public void setCurrentstatus(String currentstatus) {
-        this.currentstatus = currentstatus;
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
     }
 
-    public String getDateannounced() {
-        return dateannounced;
+    public String getDateAnnounced() {
+        return dateAnnounced;
     }
 
-    public void setDateannounced(String dateannounced) {
-        this.dateannounced = dateannounced;
+    public void setDateAnnounced(String dateAnnounced) {
+        this.dateAnnounced = dateAnnounced;
     }
 
-    public String getDetectedcity() {
-        return detectedcity;
+    public String getDetectedCity() {
+        return detectedCity;
     }
 
-    public void setDetectedcity(String detectedcity) {
-        this.detectedcity = detectedcity;
+    public void setDetectedCity(String detectedCity) {
+        this.detectedCity = detectedCity;
     }
 
-    public String getDetecteddistrict() {
-        return detecteddistrict;
+    public String getDetectedDistrict() {
+        return detectedDistrict;
     }
 
-    public void setDetecteddistrict(String detecteddistrict) {
-        this.detecteddistrict = detecteddistrict;
+    public void setDetectedDistrict(String detectedDistrict) {
+        this.detectedDistrict = detectedDistrict;
     }
 
-    public String getDetectedstate() {
-        return detectedstate;
+    public String getDetectedState() {
+        return detectedState;
     }
 
-    public void setDetectedstate(String detectedstate) {
-        this.detectedstate = detectedstate;
+    public void setDetectedState(String detectedState) {
+        this.detectedState = detectedState;
     }
 
-    public String getEstimatedonsetdate() {
-        return estimatedonsetdate;
+    public String getEstimatedOnSetDate() {
+        return estimatedOnSetDate;
     }
 
-    public void setEstimatedonsetdate(String estimatedonsetdate) {
-        this.estimatedonsetdate = estimatedonsetdate;
+    public void setEstimatedOnSetDate(String estimatedOnSetDate) {
+        this.estimatedOnSetDate = estimatedOnSetDate;
     }
 
     public String getGender() {
@@ -119,12 +141,12 @@ public class RawData {
         this.notes = notes;
     }
 
-    public String getPatientnumber() {
-        return patientnumber;
+    public String getPatientNumber() {
+        return patientNumber;
     }
 
-    public void setPatientnumber(String patientnumber) {
-        this.patientnumber = patientnumber;
+    public void setPatientNumber(String patientNumber) {
+        this.patientNumber = patientNumber;
     }
 
     public String getSource1() {
@@ -151,35 +173,36 @@ public class RawData {
         this.source3 = source3;
     }
 
-    public String getStatecode() {
-        return statecode;
+    public String getStateCode() {
+        return stateCode;
     }
 
-    public void setStatecode(String statecode) {
-        this.statecode = statecode;
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
     }
 
-    public String getStatepatientnumber() {
-        return statepatientnumber;
+    public String getStatePatientNumber() {
+        return statePatientNumber;
     }
 
-    public void setStatepatientnumber(String statepatientnumber) {
-        this.statepatientnumber = statepatientnumber;
+    public void setStatePatientNumber(String statePatientNumber) {
+        this.statePatientNumber = statePatientNumber;
     }
 
-    public String getStatuschangedate() {
-        return statuschangedate;
+    public String getStatusChangeDate() {
+        return statusChangeDate;
     }
 
-    public void setStatuschangedate(String statuschangedate) {
-        this.statuschangedate = statuschangedate;
+    public void setStatusChangeDate(String statusChangeDate) {
+        this.statusChangeDate = statusChangeDate;
     }
 
-    public String getTypeoftransmission() {
-        return typeoftransmission;
+    public String getTypeOfTransmission() {
+        return typeOfTransmission;
     }
 
-    public void setTypeoftransmission(String typeoftransmission) {
-        this.typeoftransmission = typeoftransmission;
+    public void setTypeOfTransmission(String typeOfTransmission) {
+        this.typeOfTransmission = typeOfTransmission;
     }
+
 }

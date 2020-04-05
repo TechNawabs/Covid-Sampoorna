@@ -3,7 +3,7 @@ package com.aditya.covid19fightback.ui.travel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.aditya.covid19fightback.data.model.travel.Travel;
+import com.aditya.covid19fightback.data.model.travel.TravelStat;
 import com.aditya.covid19fightback.data.rest.travel.TravelRepository;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class TravelViewModel extends ViewModel {
     private final TravelRepository travelRepository;
     private CompositeDisposable compositeDisposable;
 
-    private final MutableLiveData<List<Travel>> travelStat = new MutableLiveData<List<Travel>>();
+    private final MutableLiveData<List<TravelStat>> travelStat = new MutableLiveData<List<TravelStat>>();
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
@@ -28,7 +28,7 @@ public class TravelViewModel extends ViewModel {
         fetchTravelStat();
     }
 
-    public MutableLiveData<List<Travel>> getTravelStatResponse() {
+    public MutableLiveData<List<TravelStat>> getTravelStatResponse() {
         return travelStat;
     }
 
