@@ -50,9 +50,9 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
+        android:id="@+id/errorDaily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/errorDaily"
         android:layout_gravity="center"/>
 
 </FrameLayout>

@@ -64,20 +64,21 @@ public class DailyListFragment extends BaseFragment implements DailySelectedList
                 });
         dailyViewModel.getError()
                 .observe(getViewLifecycleOwner(), isError -> {
-                    if (isError != null) {
+                    if (isError) {
                         errorTextView.setVisibility(View.VISIBLE);
+                        errorTextView.setText("Some Error ocuured!");
                         recyclerView.setItemViewCacheSize(View.GONE);
-                        errorTextView.setVisibility(View.GONE);
+                        shimmerFrameLayout.setVisibility(View.GONE);
                     } else {
-                        errorTextView.setText(View.GONE);
+                        errorTextView.setVisibility(View.GONE);
                     }
                 });
         dailyViewModel.getLoading().observe(getViewLifecycleOwner(), isLoading -> {
             if(isLoading != null) {
                 shimmerFrameLayout.setVisibility(isLoading?View.VISIBLE:View.GONE);
                 if(isLoading) {
-                    errorTextView.setText(View.GONE);
-                    recyclerView.setItemViewCacheSize(View.GONE);
+                    errorTextView.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.GONE);
                 }
             }
         });
