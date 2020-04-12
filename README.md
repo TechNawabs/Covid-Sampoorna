@@ -1,4 +1,4 @@
-# Covid19_Fightback
+# Covid-सम्पूर्ण
 
 Steps To Run Project
 
