@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
+        android:id="@+id/animationView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_centerInParent="true"
+        app:lottie_fileName="page.json"
+        app:lottie_loop="false"
+        app:lottie_autoPlay="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:lottie_fileName="splash.json"
         app:lottie_loop="true"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         android:scaleX="0.7"
         android:scaleY="0.7"/>
 
@@ -23,9 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:alpha="0"
         android:fontFamily="@font/blackbird"
         android:text="@string/app_name"
-        android:textColor="#000000"
+        android:textColor="#FFF"
         android:textSize="30sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

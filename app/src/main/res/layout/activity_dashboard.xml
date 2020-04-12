@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="#FFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/topFrame"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/gradient_list">
+
+        <ImageView
+            android:id="@+id/clouds"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:paddingTop="40dp"
+            android:scaleX="1.1"
+            app:srcCompat="@drawable/clouds"
+            tools:ignore="ContentDescription,VectorDrawableCompat" />
+    </FrameLayout>
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_below="@id/topFrame"
+        android:layout_above="@+id/bottomFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation">
+    </fragment>
+
+    <FrameLayout
+        android:id="@+id/bottomFrame"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true">
+
+        <com.wwdablu.soumya.lottiebottomnav.LottieBottomNav
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/curved_bottom_bar"
+            app:menu_text_show_on_unselected="false"
+            app:menu_selected_height="60dp"
+            app:menu_selected_width="60dp"
+            app:menu_unselected_height="50dp"
+            app:menu_unselected_width="50dp"/>
+    </FrameLayout>
+
+</RelativeLayout>

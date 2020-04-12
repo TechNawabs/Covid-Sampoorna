@@ -5,4 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="textHead">#878789</color>
     <color name="placeholderBack">#EBEBEB</color>
+    <color name="bottomBar">#D2C6E3</color>
+    <color name="bottomBarLight">#EE98FB</color>
+    <color name="bottomBarDark">#c60055</color>
 </resources>
