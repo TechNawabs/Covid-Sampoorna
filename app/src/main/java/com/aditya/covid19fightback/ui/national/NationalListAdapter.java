@@ -29,6 +29,8 @@ public class NationalListAdapter extends RecyclerView.Adapter<NationalListAdapte
         .observe(lifecycleOwner, nationalStats -> {
             if(nationalStats != null) {
                 nationalTimeStats.setNationalTimeDataList(nationalStats.getNationalTimeDataList());
+                nationalTimeStats.setStatewiseDataList(nationalStats.getStatewiseDataList());
+                nationalTimeStats.setTestedDataList(nationalStats.getTestedDataList());
                 notifyDataSetChanged();
             }
         });

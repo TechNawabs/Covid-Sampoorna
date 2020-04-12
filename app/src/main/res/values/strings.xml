@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Covid-सम्पूर्ण</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="health">Health</string>
+    <string name="helpline">Helpline</string>
 </resources>
