@@ -2,6 +2,7 @@ package com.aditya.covid19fightback.ui.main;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -26,10 +27,12 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        myLayout = (RelativeLayout)findViewById(R.id.myLayout);
         lav1 =(LottieAnimationView)findViewById(R.id.animationView1);
         lav2 =(LottieAnimationView)findViewById(R.id.animationView2);
         tv = (TextView)findViewById(R.id.text1);
         zoomOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.sliding_text);
+        myLayout.setBackgroundColor(Color.WHITE);
         lav2.setAlpha(0f);
         tv.setAlpha(0);
         lav1.addAnimatorListener(new Animator.AnimatorListener() {
@@ -47,6 +50,7 @@ public class SplashScreen extends AppCompatActivity {
                         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 },3*1000);
+                myLayout.setBackgroundResource(R.drawable.gradient);
                 lav2.setAlpha(1f);
                 lav2.playAnimation();
                 tv.setAlpha(1);
@@ -72,7 +76,7 @@ public class SplashScreen extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
-        },6*1000);
+        },9*1000);
 
     }
 }

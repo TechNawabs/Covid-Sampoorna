@@ -5,11 +5,10 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="textHead">#878789</color>
     <color name="placeholderBack">#EBEBEB</color>
-<<<<<<< HEAD
     <color name="white">#FFFFFF</color>
-=======
     <color name="bottomBar">#D2C6E3</color>
     <color name="bottomBarLight">#EE98FB</color>
     <color name="bottomBarDark">#c60055</color>
->>>>>>> a1db65176d2b800d3314928ea8710967add216fd
+    <color name="splashScreenStart">#FA7A25</color>
+    <color name="splashScreenEnd">#E33A24</color>
 </resources>
