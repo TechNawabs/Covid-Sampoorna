@@ -4,6 +4,7 @@
     android:id="@+id/myLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     android:elevation="-10dp"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,17 +21,28 @@
         app:lottie_autoPlay="true" />
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="50dp"
+        android:layout_centerInParent="true"
+        app:lottie_fileName="flying.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="false" />
+
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
+        android:layout_marginBottom="80dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:lottie_fileName="virus.json"
         app:lottie_loop="true"
         app:lottie_autoPlay="false"
-        android:scaleX="0.5"
-        android:scaleY="0.5"/>
+        android:scaleX="0.3"
+        android:scaleY="0.3"/>
 
     <TextView
         android:id="@+id/text1"

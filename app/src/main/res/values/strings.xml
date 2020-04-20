@@ -1,12 +1,32 @@
 <resources>
 
     <string name="app_name">Covid-सम्पूर्ण</string>
-    <string name="dashboard">Dashboard</string>
+    <string name="copyright">© TechNawabs, 2020</string>
+    <string name="signature">Handcrafted in India</string>
+
     <string name="health">Health</string>
     <string name="helpline">Helpline</string>
-
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_updates">Covid Updates</string>
+
+    <string name="menu_guidelines">DOs/DONTs</string>
+    <string name="menu_essentials">Essentials</string>
+    <string name="menu_helpful_stuff">Helpful Stuff</string>
+    <string name="menu_states">States</string>
+    <string name="menu_demographics">Demographics</string>
+    <string name="confirmed_text">Confirmed</string>
+    <string name="active_text">Active</string>
+    <string name="recovered_text">Recovered</string>
+    <string name="deceased_text">Deceased</string>
+
+    <string name="daily_tab">Daily</string>
+    <string name="weekly_tab">Weekly</string>
+    <string name="monthly_tab">Monthly</string>
+    <string name="not_applicable">NA</string>
+
+    <string name="nav_header_title">TechNawabs Design Studio</string>
+    <string name="nav_header_subtitle">technawabs@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
 </resources>

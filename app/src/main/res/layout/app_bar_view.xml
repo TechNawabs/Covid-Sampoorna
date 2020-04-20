@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/navButton"
+        android:elevation="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:lottie_fileName="menu.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
+
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/bottomFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@drawable/rounded_rect_white"
+        android:elevation="12dp"
+        android:padding="16dp"
+        app:bnc_mode="inside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/red_active"
+            app:bt_colorInactive="@color/red_inactive"
+            app:bt_icon="@drawable/ic_home_black_24dp"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/red_bg_light"
+            app:bt_title="@string/title_home" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/blue_active"
+            app:bt_colorInactive="@color/blue_inactive"
+            app:bt_icon="@drawable/ic_dashboard_black_24dp"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/blue_bg_light"
+            app:bt_title="@string/title_dashboard" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/blue_grey_active"
+            app:bt_colorInactive="@color/blue_grey_inactive"
+            app:bt_icon="@drawable/ic_notifications_black_24dp"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/blue_grey_bg_light"
+            app:bt_title="@string/title_updates" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_helpline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/green_active"
+            app:bt_colorInactive="@color/green_inactive"
+            app:bt_icon="@drawable/ic_call_black_24dp"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/green_bg_light"
+            app:bt_title="@string/helpline" />
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+
+</RelativeLayout>

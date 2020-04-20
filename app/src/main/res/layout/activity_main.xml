@@ -1,202 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+    <RelativeLayout
+        android:id="@+id/container"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <!-- Toolbar -->
-<!--        <android.support.v7.widget.Toolbar-->
-<!--            android:id="@+id/toolbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            android:background="@color/colorPrimary" />-->
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-<!--        <FrameLayout-->
-<!--            android:id="@+id/screenContainer"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--        </FrameLayout>-->
-    <include
-        android:id="@+id/screenContainer"
-        layout="@layout/content_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        >
-
-    </include>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation"
-        >
+        android:layout_height="match_parent">
 
         <FrameLayout
+            android:id="@+id/topFrame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
+            android:background="@drawable/gradient_list">
 
-            >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <FrameLayout
-                android:id="@+id/lay1"
-                android:layout_width="0dp"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_marginLeft="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginEnd="32dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay2"
+            <ImageView
+                android:id="@+id/clouds"
                 android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay1"
-                android:layout_marginLeft="28dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginRight="28dp"
-                android:layout_marginEnd="28dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay3"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay2"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_marginEnd="24dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay4"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/lay3"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay5"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay4"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginEnd="16dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay6"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay5"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginEnd="12dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay7"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay6"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay8"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay7"
-                android:layout_marginLeft="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginEnd="4dp"
-                >
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/lay9"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorAccent"
-                android:layout_below="@+id/lay8"
-                android:layout_marginLeft="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginEnd="0dp"
-                >
-
-            </FrameLayout>
-
-        </RelativeLayout>
-
+                android:layout_height="150dp"
+                android:layout_gravity="bottom"
+                android:paddingTop="40dp"
+                android:scaleX="1.1"
+                app:srcCompat="@drawable/clouds"
+                tools:ignore="ContentDescription,VectorDrawableCompat" />
         </FrameLayout>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        <include
+            layout="@layout/app_bar_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            layout="@layout/fragment_dashboard"
+            android:layout_marginTop="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:defaultNavHost="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/mobile_navigation" />
+    </RelativeLayout>
+
+    <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer"
+        app:itemHorizontalPadding="60dp"
+        app:itemIconSize="30dp">
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/popAnimation1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginBottom="15dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            app:lottie_fileName="pop.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="180dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="100dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/ic_doctors" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_signature"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:paddingStart="60dp"
+            android:elevation="12dp"
+            app:fontFamily="@font/blackbird"
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/signature"
+            tools:ignore="RtlSymmetry" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            android:paddingStart="70dp"
+            android:elevation="12dp"
+            app:fontFamily="@font/blackbird"
+            android:layout_marginBottom="5dp"
+            android:text="@string/copyright"
+            tools:ignore="RtlSymmetry" />
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

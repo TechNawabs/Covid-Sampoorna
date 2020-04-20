@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.aditya.covid19fightback.ui.home.HomeFragment"
+        android:name="com.technawabs.covid_sampurn.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.aditya.covid19fightback.ui.dashboard.DashboardFragment"
+        android:name="com.technawabs.covid_sampurn.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.aditya.covid19fightback.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:name="com.technawabs.covid_sampurn.ui.notifications.NotificationsFragment"
+        android:label="@string/title_updates"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
