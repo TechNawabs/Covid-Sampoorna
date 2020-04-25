@@ -37,11 +37,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <include
-            layout="@layout/fragment_dashboard"
-            android:layout_marginTop="160dp"
+        <FrameLayout
+            android:id="@+id/mainFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="190dp"
+            android:layout_marginBottom="104dp"
+            />
 
         <fragment
             android:id="@+id/nav_host_fragment"

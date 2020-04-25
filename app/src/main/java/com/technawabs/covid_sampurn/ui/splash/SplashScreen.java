@@ -1,4 +1,4 @@
-package com.technawabs.covid_sampurn.ui.main;
+package com.technawabs.covid_sampurn.ui.splash;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.technawabs.covid_sampurn.R;
 import com.airbnb.lottie.LottieAnimationView;
 import com.technawabs.covid_sampurn.base.BaseActivity;
+import com.technawabs.covid_sampurn.ui.main.MainActivity;
 
 public class SplashScreen extends BaseActivity {
     TextView tv;

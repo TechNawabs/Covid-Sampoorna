@@ -19,6 +19,8 @@ import com.gauravk.bubblenavigation.BubbleNavigationConstraintView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.navigation.NavigationView;
 import com.technawabs.covid_sampurn.base.BaseActivity;
+import com.technawabs.covid_sampurn.ui.daily.DailyListFragment;
+import com.technawabs.covid_sampurn.ui.national.NationalListFragment;
 
 import static androidx.core.view.GravityCompat.START;
 
@@ -63,9 +65,18 @@ public class MainActivity extends BaseActivity {
                 switch (position) {
                     case 0:
                         Toast.makeText(getApplicationContext(), "This is Home", Toast.LENGTH_SHORT).show();
+//                        if (getSupportFragmentManager().beginTransaction().re) {
+//
+//                        }
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.mainFragment, new NationalListFragment())
+                                .commit();
                         break;
                     case 1:
                         Toast.makeText(getApplicationContext(), "This is Dashboard", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.mainFragment, new DailyListFragment())
+                                .commit();
                         break;
                     case 2:
                         Toast.makeText(getApplicationContext(), "This is Covid Updates", Toast.LENGTH_SHORT).show();
@@ -84,6 +95,9 @@ public class MainActivity extends BaseActivity {
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(2500);
         animationDrawable.start();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.mainFragment, new NationalListFragment())
+                .commit();
     }
 
     void initNavDrawer() {

@@ -15,7 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.technawabs.covid_sampurn.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/national_list_cases_card" />
 
     <fragment
         android:id="@+id/navigation_notifications"

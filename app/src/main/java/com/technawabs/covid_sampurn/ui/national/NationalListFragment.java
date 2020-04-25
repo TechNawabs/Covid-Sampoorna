@@ -25,9 +25,9 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
 
     private static final String TAG = NationalListFragment.class.getSimpleName();
 
-    @BindView(R.id.recyclerViewNational) RecyclerView recyclerView;
-    @BindView(R.id.errorNational) TextView errorTextView;
-    @BindView(R.id.nationalShimmerFrameLayout) ShimmerFrameLayout shimmerFrameLayout;
+//    @BindView(R.id.recyclerViewNational) RecyclerView recyclerView;
+//    @BindView(R.id.errorNational) TextView errorTextView;
+//    @BindView(R.id.nationalShimmerFrameLayout) ShimmerFrameLayout shimmerFrameLayout;
 
     @Inject
     ViewModelFactory viewModelFactory;
@@ -43,8 +43,8 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
         nationalViewModel = ViewModelProviders.of(this, viewModelFactory)
         .get(NationalViewModel.class);
         //        recyclerView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(new NationalListAdapter(nationalViewModel, this, this));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        recyclerView.setAdapter(new NationalListAdapter(nationalViewModel, this, this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         observableViewModel();
     }
 
@@ -57,31 +57,31 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
         nationalViewModel.getNationalResponse()
         .observe(getViewLifecycleOwner(), nationalTimeStats -> {
             if(nationalTimeStats != null) {
-                recyclerView.setVisibility(View.VISIBLE);
+//                recyclerView.setVisibility(View.VISIBLE);
             }
         });
 
         nationalViewModel.getRepoLoadError()
                 .observe(getViewLifecycleOwner(), isError -> {
-                    if (isError) {
-                        errorTextView.setVisibility(View.VISIBLE);
-                        errorTextView.setText("Some Error occurred!");
-                        recyclerView.setItemViewCacheSize(View.GONE);
-                        shimmerFrameLayout.stopShimmer();
-                    } else {
-                        errorTextView.setVisibility(View.GONE);
-                        shimmerFrameLayout.startShimmer();
-                    }
+//                    if (isError) {
+//                        errorTextView.setVisibility(View.VISIBLE);
+//                        errorTextView.setText("Some Error occurred!");
+//                        recyclerView.setItemViewCacheSize(View.GONE);
+//                        shimmerFrameLayout.stopShimmer();
+//                    } else {
+//                        errorTextView.setVisibility(View.GONE);
+//                        shimmerFrameLayout.startShimmer();
+//                    }
                 });
         nationalViewModel.getLoading().observe(getViewLifecycleOwner(), isLoading -> {
             if(isLoading != null) {
-                if(isLoading) {
-                    errorTextView.setVisibility(View.GONE);
-                    recyclerView.setVisibility(View.GONE);
-                    shimmerFrameLayout.startShimmer();
-                } else {
-                    shimmerFrameLayout.stopShimmer();
-                }
+//                if(isLoading) {
+//                    errorTextView.setVisibility(View.GONE);
+//                    recyclerView.setVisibility(View.GONE);
+//                    shimmerFrameLayout.startShimmer();
+//                } else {
+//                    shimmerFrameLayout.stopShimmer();
+//                }
             }
         });
     }
