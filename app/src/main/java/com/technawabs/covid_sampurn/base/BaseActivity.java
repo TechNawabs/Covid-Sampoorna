@@ -19,4 +19,5 @@ public abstract class BaseActivity extends DaggerAppCompatActivity {
         setContentView(layoutRes());
         ButterKnife.bind(this);
     }
+
 }

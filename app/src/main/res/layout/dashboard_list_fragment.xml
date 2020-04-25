@@ -5,51 +5,8 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
-            <include
-                layout="@layout/national_list_cases_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="64dp"
-                    android:layout_marginRight="64dp"
-                    />
-
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-
-
 <!--    <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--        android:id="@+id/nationalShimmerFrameLayout"-->
+<!--        android:id="@+id/travelShimmerFrameLayout"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->
 <!--        android:layout_gravity="center"-->
@@ -89,12 +46,12 @@
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/recyclerViewNational">-->
+<!--        android:id="@+id/recyclerViewTravel">-->
 
 <!--    </androidx.recyclerview.widget.RecyclerView>-->
 
 <!--    <TextView-->
-<!--        android:id="@+id/errorNational"-->
+<!--        android:id="@+id/errorTravel"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_gravity="center"/>-->

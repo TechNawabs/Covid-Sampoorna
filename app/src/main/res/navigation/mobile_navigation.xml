@@ -7,19 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.technawabs.covid_sampurn.ui.home.HomeFragment"
+        android:name="com.technawabs.covid_sampurn.ui.national.NationalListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/national_list_fragment" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.technawabs.covid_sampurn.ui.dashboard.DashboardFragment"
+        android:name="com.technawabs.covid_sampurn.ui.daily.DailyListFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/national_list_cases_card" />
+        tools:layout="@layout/daily_list_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.technawabs.covid_sampurn.ui.notifications.NotificationsFragment"
-        android:label="@string/title_updates"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.technawabs.covid_sampurn.ui.raw.RawListFragment"
+        android:label="Helplines"
+        tools:layout="@layout/raw_list_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_helplines"
+        android:name="com.technawabs.covid_sampurn.ui.travel.TravelListFragment"
+        android:label="Condo"
+        tools:layout="@layout/travel_list_fragment" />
 </navigation>
