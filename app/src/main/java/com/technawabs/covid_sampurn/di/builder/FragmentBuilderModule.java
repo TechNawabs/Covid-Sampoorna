@@ -2,6 +2,7 @@ package com.technawabs.covid_sampurn.di.builder;
 
 import com.technawabs.covid_sampurn.ui.daily.DailyListFragment;
 import com.technawabs.covid_sampurn.ui.national.NationalListFragment;
+import com.technawabs.covid_sampurn.ui.national.adapter.GraphFragment;
 import com.technawabs.covid_sampurn.ui.raw.RawListFragment;
 import com.technawabs.covid_sampurn.ui.state.StateListFragment;
 import com.technawabs.covid_sampurn.ui.travel.TravelListFragment;
@@ -14,6 +15,9 @@ public abstract class FragmentBuilderModule {
 
     @ContributesAndroidInjector
     abstract DailyListFragment provideDailyListFragment();
+
+    @ContributesAndroidInjector
+    abstract GraphFragment provideGraphFragment();
 
     @ContributesAndroidInjector
     abstract NationalListFragment provideNationalListFragment();

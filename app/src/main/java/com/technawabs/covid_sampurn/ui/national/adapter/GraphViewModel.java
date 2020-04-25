@@ -1,4 +1,4 @@
-package com.technawabs.covid_sampurn.ui.home.adapter;
+package com.technawabs.covid_sampurn.ui.national.adapter;
 
 import androidx.lifecycle.ViewModel;
 

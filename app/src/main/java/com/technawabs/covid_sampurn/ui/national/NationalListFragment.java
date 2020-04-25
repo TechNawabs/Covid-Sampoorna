@@ -11,10 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseFragment;
 import com.technawabs.covid_sampurn.data.model.national.NationalTimeData;
+import com.technawabs.covid_sampurn.ui.national.adapter.SectionsPagerAdapter;
 import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -74,10 +77,21 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     @BindView(R.id.deceased_growth_down)
     LinearLayout deceasedGrowthDownView;
     //    Tabs
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
+    @BindView(R.id.tabs)
+    TabLayout graphViewTabs;
+
+    private SectionsPagerAdapter sectionsPagerAdapter;
 
     @Inject
     ViewModelFactory viewModelFactory;
     private NationalViewModel nationalViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected int layoutRes() {
@@ -91,6 +105,10 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
         //        recyclerView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
 //        recyclerView.setAdapter(new NationalListAdapter(nationalViewModel, this, this));
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        sectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getParentFragmentManager());
+        Log.d(TAG, "Sre: "+sectionsPagerAdapter.getCount());
+        viewPager.setAdapter(sectionsPagerAdapter);
+        graphViewTabs.setupWithViewPager(viewPager);
         observableViewModel();
     }
 

@@ -1,13 +1,10 @@
-package com.technawabs.covid_sampurn.ui.home.adapter;
+package com.technawabs.covid_sampurn.ui.national.adapter;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.anychart.AnyChart;
@@ -25,14 +22,18 @@ import com.anychart.enums.ScaleStackMode;
 import com.anychart.enums.TooltipDisplayMode;
 import com.anychart.graphics.vector.Stroke;
 import com.technawabs.covid_sampurn.R;
+import com.technawabs.covid_sampurn.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphFragment extends Fragment {
+import butterknife.BindView;
+
+public class GraphFragment extends BaseFragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private GraphViewModel mViewModel;
+    @BindView(R.id.any_chart_view)
     AnyChartView anyChartView;
     private int state;
 
@@ -56,10 +57,32 @@ public class GraphFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.graph_fragment, container, false);
-        anyChartView = (AnyChartView) root.findViewById(R.id.any_chart_view);
+    protected int layoutRes() {
+        return R.layout.graph_fragment;
+    }
+
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+//                             @Nullable Bundle savedInstanceState) {
+//        View root = inflater.inflate(R.layout.graph_fragment, container, false);
+//        anyChartView = (AnyChartView) root.findViewById(R.id.any_chart_view);
+//        switch (state) {
+//            case 2:
+//                drawWeeklyChart();
+//                break;
+//            case 3:
+//                drawMonthlyChart();
+//                break;
+//            case 1:
+//                drawDailyChart();
+//                break;
+//        }
+//        return root;
+//    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         switch (state) {
             case 2:
                 drawWeeklyChart();
@@ -71,7 +94,6 @@ public class GraphFragment extends Fragment {
                 drawDailyChart();
                 break;
         }
-        return root;
     }
 
     @Override

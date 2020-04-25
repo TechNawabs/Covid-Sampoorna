@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import com.technawabs.covid_sampurn.R;
-import com.technawabs.covid_sampurn.ui.home.adapter.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import butterknife.BindView;
@@ -75,7 +74,7 @@ public class DashboardFragment extends Fragment {
     @BindView(R.id.tabs)
     TabLayout graphViewTabs;
 
-    private SectionsPagerAdapter sectionsPagerAdapter;
+//    private SectionsPagerAdapter sectionsPagerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -94,12 +93,13 @@ public class DashboardFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
-        viewPager = root.findViewById(R.id.view_pager);
-        graphViewTabs = root.findViewById(R.id.tabs);
-        sectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getParentFragmentManager());
-        Log.d(TAG, "Sre: "+sectionsPagerAdapter.getCount());
-        viewPager.setAdapter(sectionsPagerAdapter);
-        graphViewTabs.setupWithViewPager(viewPager);
+
+//        viewPager = root.findViewById(R.id.view_pager);
+//        graphViewTabs = root.findViewById(R.id.tabs);
+//        sectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getParentFragmentManager());
+//        Log.d(TAG, "Sre: "+sectionsPagerAdapter.getCount());
+//        viewPager.setAdapter(sectionsPagerAdapter);
+//        graphViewTabs.setupWithViewPager(viewPager);
         return root;
     }
     @Override
