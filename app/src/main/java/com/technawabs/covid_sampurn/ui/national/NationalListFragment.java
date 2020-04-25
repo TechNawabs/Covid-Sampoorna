@@ -3,6 +3,7 @@ package com.technawabs.covid_sampurn.ui.national;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,51 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
 //    @BindView(R.id.recyclerViewNational) RecyclerView recyclerView;
 //    @BindView(R.id.errorNational) TextView errorTextView;
 //    @BindView(R.id.nationalShimmerFrameLayout) ShimmerFrameLayout shimmerFrameLayout;
+    //    active
+    @BindView(R.id.active_number)
+    TextView activeNumberTextView;
+    @BindView(R.id.active_growth_up_number)
+    TextView activePercentUpTextView;
+    @BindView(R.id.active_growth_down_number)
+    TextView activePercentDownTextView;
+    @BindView(R.id.active_growth_up)
+    LinearLayout activeGrowthUpView;
+    @BindView(R.id.active_growth_down)
+    LinearLayout activeGrowthDownView;
+    //    confirmed
+    @BindView(R.id.confirmed_number)
+    TextView confirmedNumberTextView;
+    @BindView(R.id.confirmed_growth_up_number)
+    TextView confirmedPercentUpTextView;
+    @BindView(R.id.confirmed_growth_down_number)
+    TextView confirmedPercentDownTextView;
+    @BindView(R.id.confirmed_growth_up)
+    LinearLayout confirmedGrowthUpView;
+    @BindView(R.id.confirmed_growth_down)
+    LinearLayout confirmedGrowthDownView;
+    //    recovered
+    @BindView(R.id.recovered_number)
+    TextView recoveredNumberTextView;
+    @BindView(R.id.recovered_growth_up_number)
+    TextView recoveredPercentUpTextView;
+    @BindView(R.id.recovered_growth_down_number)
+    TextView recoveredPercentDownTextView;
+    @BindView(R.id.recovered_growth_up)
+    LinearLayout recoveredGrowthUpView;
+    @BindView(R.id.recovered_growth_down)
+    LinearLayout recoveredGrowthDownView;
+    //    deceased
+    @BindView(R.id.deceased_number)
+    TextView deceasedNumberTextView;
+    @BindView(R.id.deceased_growth_up_number)
+    TextView deceasedPercentUpTextView;
+    @BindView(R.id.deceased_growth_down_number)
+    TextView deceasedPercentDownTextView;
+    @BindView(R.id.deceased_growth_up)
+    LinearLayout deceasedGrowthUpView;
+    @BindView(R.id.deceased_growth_down)
+    LinearLayout deceasedGrowthDownView;
+    //    Tabs
 
     @Inject
     ViewModelFactory viewModelFactory;
