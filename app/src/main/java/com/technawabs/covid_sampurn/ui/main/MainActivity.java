@@ -18,10 +18,11 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.gauravk.bubblenavigation.BubbleNavigationConstraintView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.navigation.NavigationView;
+import com.technawabs.covid_sampurn.base.BaseActivity;
 
 import static androidx.core.view.GravityCompat.START;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     FrameLayout topFrame;
     BubbleNavigationConstraintView bottomFrame;
     AppBarConfiguration mAppBarConfiguration;
@@ -31,9 +32,14 @@ public class MainActivity extends AppCompatActivity {
     LottieAnimationView navButton;
 
     @Override
+    protected int layoutRes() {
+        return R.layout.activity_main;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
 
         initNavDrawer();
         initTopFrame();

@@ -10,21 +10,28 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.technawabs.covid_sampurn.R;
 import com.airbnb.lottie.LottieAnimationView;
+import com.technawabs.covid_sampurn.base.BaseActivity;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends BaseActivity {
     TextView tv;
     Animation zoomOut;
     LottieAnimationView lav1,lav2,lav3;
     RelativeLayout myLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected int layoutRes() {
+        return R.layout.activity_splash_screen;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+//        setContentView(R.layout.activity_splash_screen);
 
         myLayout = findViewById(R.id.myLayout);
         lav1 = findViewById(R.id.animationView1);
