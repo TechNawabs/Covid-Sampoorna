@@ -21,6 +21,8 @@ import com.technawabs.covid_sampurn.ui.national.adapter.SectionsPagerAdapter;
 import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
+import java.util.Collections;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -122,30 +124,94 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
         .observe(getViewLifecycleOwner(), nationalTimeStats -> {
             if(nationalTimeStats != null) {
 //                recyclerView.setVisibility(View.VISIBLE);
+                if (nationalTimeStats.getNationalTimeDataList() != null
+                        && nationalTimeStats.getNationalTimeDataList().size() > 0) {
+                    NationalTimeData lastTimeData = nationalTimeStats.getNationalTimeDataList()
+                            .get(nationalTimeStats.getNationalTimeDataList().size()-1);
+                    NationalTimeData secondLastTimeData = nationalTimeStats.getNationalTimeDataList()
+                            .get(nationalTimeStats.getNationalTimeDataList().size()-2);
+                    confirmedNumberTextView.setText(lastTimeData.totalConfirmed);
+                    deceasedNumberTextView.setText(lastTimeData.totalDeceased);
+                    recoveredNumberTextView.setText(lastTimeData.totalRecovered);
+                    int activeNumber = Integer.parseInt(lastTimeData.totalConfirmed)
+                            - Integer.parseInt(lastTimeData.totalDeceased)
+                            - Integer.parseInt(lastTimeData.totalRecovered);
+                    activeNumberTextView.setText(activeNumber+ "");
+//                  compared confirmed
+                    int compareConfirmed = Integer.parseInt(lastTimeData.totalConfirmed)
+                            - Integer.parseInt(secondLastTimeData.totalConfirmed);
+                    if (compareConfirmed < 0) {
+                        confirmedGrowthDownView.setVisibility(View.VISIBLE);
+                        confirmedGrowthUpView.setVisibility(View.INVISIBLE);
+                        confirmedPercentDownTextView.setText(compareConfirmed+ "");
+                    } else {
+                        confirmedGrowthDownView.setVisibility(View.INVISIBLE);
+                        confirmedGrowthUpView.setVisibility(View.VISIBLE);
+                        confirmedPercentUpTextView.setText(compareConfirmed+ "");
+                    }
+                    //  compared deceased
+                    int compareDeceased = Integer.parseInt(lastTimeData.totalDeceased)
+                            - Integer.parseInt(secondLastTimeData.totalDeceased);
+                    if (compareDeceased < 0) {
+                        deceasedGrowthDownView.setVisibility(View.VISIBLE);
+                        deceasedGrowthUpView.setVisibility(View.INVISIBLE);
+                        deceasedPercentDownTextView.setText(compareDeceased+ "");
+                    } else {
+                        deceasedGrowthDownView.setVisibility(View.INVISIBLE);
+                        deceasedGrowthUpView.setVisibility(View.VISIBLE);
+                        deceasedPercentUpTextView.setText(compareDeceased+ "");
+                    }
+                    //  compared recovered
+                    int compareRecovered = Integer.parseInt(lastTimeData.totalRecovered)
+                            - Integer.parseInt(secondLastTimeData.totalRecovered);
+                    if (compareRecovered < 0) {
+                        recoveredGrowthDownView.setVisibility(View.VISIBLE);
+                        recoveredGrowthUpView.setVisibility(View.INVISIBLE);
+                        recoveredPercentDownTextView.setText(compareRecovered+ "");
+                    } else {
+                        recoveredGrowthDownView.setVisibility(View.INVISIBLE);
+                        recoveredGrowthUpView.setVisibility(View.VISIBLE);
+                        recoveredPercentUpTextView.setText(compareRecovered+ "");
+                    }
+                    //  compared active
+                    int secondActiveNumber = Integer.parseInt(lastTimeData.totalConfirmed)
+                            - Integer.parseInt(lastTimeData.totalDeceased)
+                            - Integer.parseInt(lastTimeData.totalRecovered);
+                    int compareActive = activeNumber - secondActiveNumber;
+                    if (compareActive < 0) {
+                        activeGrowthDownView.setVisibility(View.VISIBLE);
+                        activeGrowthUpView.setVisibility(View.INVISIBLE);
+                        activePercentDownTextView.setText(compareActive+ "");
+                    } else {
+                        activeGrowthDownView.setVisibility(View.INVISIBLE);
+                        activeGrowthUpView.setVisibility(View.VISIBLE);
+                        activePercentUpTextView.setText(compareActive+ "");
+                    }
+                }
             }
         });
 
         nationalViewModel.getRepoLoadError()
                 .observe(getViewLifecycleOwner(), isError -> {
-//                    if (isError) {
+                    if (isError) {
 //                        errorTextView.setVisibility(View.VISIBLE);
 //                        errorTextView.setText("Some Error occurred!");
 //                        recyclerView.setItemViewCacheSize(View.GONE);
 //                        shimmerFrameLayout.stopShimmer();
-//                    } else {
+                    } else {
 //                        errorTextView.setVisibility(View.GONE);
 //                        shimmerFrameLayout.startShimmer();
-//                    }
+                    }
                 });
         nationalViewModel.getLoading().observe(getViewLifecycleOwner(), isLoading -> {
             if(isLoading != null) {
-//                if(isLoading) {
+                if(isLoading) {
 //                    errorTextView.setVisibility(View.GONE);
 //                    recyclerView.setVisibility(View.GONE);
 //                    shimmerFrameLayout.startShimmer();
-//                } else {
+                } else {
 //                    shimmerFrameLayout.stopShimmer();
-//                }
+                }
             }
         });
     }

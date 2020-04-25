@@ -4,16 +4,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class TestedData {
 
-    @SerializedName("_cyevm")
-    public String code;
+    @SerializedName("individualstestedperconfirmedcase")
+    public String individualsTestedPerConfirmedCase;
     @SerializedName("positivecasesfromsamplesreported")
     public String positiveCasesFromSamplesReported;
     @SerializedName("samplereportedtoday")
     public String sampleReportedToday;
     @SerializedName("source")
     public String source;
+    @SerializedName("testpositivityrate")
+    public String testPositivityRate;
     @SerializedName("testsconductedbyprivatelabs")
-    public String testsConductedbyPrivateLabs;
+    public String testsConductedByPrivateLabs;
+    @SerializedName("testsperconfirmedcase")
+    public String testsPerConfirmedCase;
     @SerializedName("totalindividualstested")
     public String totalIndividualsTested;
     @SerializedName("totalpositivecases")
@@ -23,12 +27,12 @@ public class TestedData {
     @SerializedName("updatetimestamp")
     public String updateTimestamp;
 
-    public String getCode() {
-        return code;
+    public String getIndividualsTestedPerConfirmedCase() {
+        return individualsTestedPerConfirmedCase;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setIndividualsTestedPerConfirmedCase(String individualsTestedPerConfirmedCase) {
+        this.individualsTestedPerConfirmedCase = individualsTestedPerConfirmedCase;
     }
 
     public String getPositiveCasesFromSamplesReported() {
@@ -55,12 +59,28 @@ public class TestedData {
         this.source = source;
     }
 
-    public String getTestsConductedbyPrivateLabs() {
-        return testsConductedbyPrivateLabs;
+    public String getTestPositivityRate() {
+        return testPositivityRate;
     }
 
-    public void setTestsConductedbyPrivateLabs(String testsConductedbyPrivateLabs) {
-        this.testsConductedbyPrivateLabs = testsConductedbyPrivateLabs;
+    public void setTestPositivityRate(String testPositivityRate) {
+        this.testPositivityRate = testPositivityRate;
+    }
+
+    public String getTestsConductedByPrivateLabs() {
+        return testsConductedByPrivateLabs;
+    }
+
+    public void setTestsConductedByPrivateLabs(String testsConductedByPrivateLabs) {
+        this.testsConductedByPrivateLabs = testsConductedByPrivateLabs;
+    }
+
+    public String getTestsPerConfirmedCase() {
+        return testsPerConfirmedCase;
+    }
+
+    public void setTestsPerConfirmedCase(String testsPerConfirmedCase) {
+        this.testsPerConfirmedCase = testsPerConfirmedCase;
     }
 
     public String getTotalIndividualsTested() {

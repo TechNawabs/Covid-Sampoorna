@@ -2,8 +2,6 @@ package com.technawabs.covid_sampurn.data.model.national;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
 public class StatewiseData {
 
     public String active;
@@ -16,11 +14,13 @@ public class StatewiseData {
     @SerializedName("deltarecovered")
     public String deltaRecovered;
     @SerializedName("lastupdatedtime")
-    public Date lastUpdatedTime;
+    public String lastUpdatedTime;
     public String recovered;
     public String state;
     @SerializedName("statecode")
     public String stateCode;
+    @SerializedName("statenotes")
+    public String statenotes;
 
     public String getActive() {
         return active;
@@ -70,11 +70,11 @@ public class StatewiseData {
         this.deltaRecovered = deltaRecovered;
     }
 
-    public Date getLastUpdatedTime() {
+    public String getLastUpdatedTime() {
         return lastUpdatedTime;
     }
 
-    public void setLastUpdatedTime(Date lastUpdatedTime) {
+    public void setLastUpdatedTime(String lastUpdatedTime) {
         this.lastUpdatedTime = lastUpdatedTime;
     }
 
@@ -100,5 +100,13 @@ public class StatewiseData {
 
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
+    }
+
+    public String getStatenotes() {
+        return statenotes;
+    }
+
+    public void setStatenotes(String statenotes) {
+        this.statenotes = statenotes;
     }
 }

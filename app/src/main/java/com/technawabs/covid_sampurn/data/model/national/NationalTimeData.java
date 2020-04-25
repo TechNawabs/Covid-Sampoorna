@@ -2,7 +2,7 @@ package com.technawabs.covid_sampurn.data.model.national;
 
 import com.google.gson.annotations.SerializedName;
 
-public class NationalTimeData {
+public class NationalTimeData implements Comparable<NationalTimeData> {
 
     @SerializedName("dailyconfirmed")
     public String dailyConfirmed;
@@ -48,7 +48,7 @@ public class NationalTimeData {
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.date = date + "2020";
     }
 
     public String getTotalConfirmed() {
@@ -75,4 +75,9 @@ public class NationalTimeData {
         this.totalRecovered = totalRecovered;
     }
 
+    @Override
+    public int compareTo(NationalTimeData o) {
+        String st = getDate()+ "2020";
+        return st.compareTo(o.getDate()+"20202");
+    }
 }
