@@ -13,19 +13,19 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.technawabs.covid_sampurn.ui.daily.DailyListFragment"
+        android:name="com.technawabs.covid_sampurn.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/daily_list_fragment" />
+        tools:layout="@layout/dashboard_list_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.technawabs.covid_sampurn.ui.raw.RawListFragment"
-        android:label="Helplines"
-        tools:layout="@layout/raw_list_fragment" />
+        android:name="com.technawabs.covid_sampurn.ui.notifications.NotificationsFragment"
+        android:label="Covid Updates"
+        tools:layout="@layout/notifications_fragment" />
 
     <fragment
         android:id="@+id/navigation_helplines"
-        android:name="com.technawabs.covid_sampurn.ui.travel.TravelListFragment"
-        android:label="Condo"
-        tools:layout="@layout/travel_list_fragment" />
+        android:name="com.technawabs.covid_sampurn.ui.helplines.HelplineFragment"
+        android:label="Helpline"
+        tools:layout="@layout/helpline_fragment" />
 </navigation>

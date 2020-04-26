@@ -27,7 +27,11 @@ import com.gauravk.bubblenavigation.BubbleNavigationConstraintView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.navigation.NavigationView;
 import com.technawabs.covid_sampurn.base.BaseActivity;
+import com.technawabs.covid_sampurn.ui.advice.AdviceFragment;
 import com.technawabs.covid_sampurn.ui.daily.DailyListFragment;
+import com.technawabs.covid_sampurn.ui.demographic.DemographicFragment;
+import com.technawabs.covid_sampurn.ui.essential.EssentialFragment;
+import com.technawabs.covid_sampurn.ui.helplines.HelplineFragment;
 import com.technawabs.covid_sampurn.ui.national.NationalListFragment;
 import com.technawabs.covid_sampurn.ui.raw.RawListFragment;
 import com.technawabs.covid_sampurn.ui.state.StateListFragment;
@@ -86,18 +90,32 @@ public class MainActivity extends BaseActivity {
                 int id = item.getItemId();
                 switch (id) {
                     case R.id.nav_guidelines:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.nav_host_fragment, new AdviceFragment())
+                                .commit();
                         drawer.close();
                         break;
                     case R.id.nav_essentials:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.nav_host_fragment, new EssentialFragment())
+                                .commit();
                         drawer.close();
                         break;
                     case R.id.nav_helpful_stuff:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.nav_host_fragment, new TravelListFragment())
+                                .commit();
                         drawer.close();
                         break;
                     case R.id.nav_states:
-                        getSupportFragmentManager().popBackStack();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_host_fragment, new StateListFragment())
+                                .commit();
+                        drawer.close();
+                        break;
+                    case R.id.nav_demographics:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.nav_host_fragment, new DemographicFragment())
                                 .commit();
                         drawer.close();
                         break;
@@ -138,7 +156,7 @@ public class MainActivity extends BaseActivity {
                     case 3:
                         Toast.makeText(getApplicationContext(), "This is Helpline", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.nav_host_fragment, new TravelListFragment())
+                                .replace(R.id.nav_host_fragment, new HelplineFragment())
                                 .commit();
                         break;
                 }

@@ -1,4 +1,4 @@
-package com.technawabs.covid_sampurn.ui.notifications;
+package com.technawabs.covid_sampurn.ui.essential;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.technawabs.covid_sampurn.R;
 
-public class NotificationsFragment extends Fragment {
+public class EssentialFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private EssentialViewModel essentialViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.notifications_fragment, container, false);
+        essentialViewModel =
+                ViewModelProviders.of(this).get(EssentialViewModel.class);
+        View root = inflater.inflate(R.layout.essential_fragment, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        essentialViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
