@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.national.adapter.GraphFragment">
 
-    <com.anychart.AnyChartView
-        android:id="@+id/any_chart_view"
+    <WebView
+        android:id="@+id/myView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"
-        />
+        android:layout_marginBottom="60dp" />
 
 </FrameLayout>

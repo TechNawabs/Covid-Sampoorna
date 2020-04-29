@@ -2,30 +2,25 @@ package com.technawabs.covid_sampurn.ui.main;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.SupportActionModeWrapper;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.technawabs.covid_sampurn.R;
 import com.airbnb.lottie.LottieAnimationView;
 import com.gauravk.bubblenavigation.BubbleNavigationConstraintView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseActivity;
 import com.technawabs.covid_sampurn.ui.advice.AdviceFragment;
 import com.technawabs.covid_sampurn.ui.daily.DailyListFragment;
@@ -39,7 +34,7 @@ import com.technawabs.covid_sampurn.ui.travel.TravelListFragment;
 
 import static androidx.core.view.GravityCompat.START;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity{
 
     private FrameLayout topFrame;
     private BubbleNavigationConstraintView bottomFrame;
@@ -51,29 +46,19 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomNavigationView;
 
     private ActionBar actionBar;
-    private Toolbar toolbar;
 
     @Override
     protected int layoutRes() {
         return R.layout.activity_main;
     }
 
-//    @Override
-//    public void setActionBar(@Nullable Toolbar toolbar) {
-////        super.setActionBar(toolbar);
-//        this.toolbar = findViewById(R.id.toolbar);
-//        toolbar = this.toolbar;
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//        if(getActionBar() != null) {
+
         actionBar = getSupportActionBar();
             initNavDrawer();
             initTopFrame();
-//        }
 
         //Toggle navigation drawer by icon
         navButton = findViewById(R.id.navButton);
@@ -177,15 +162,8 @@ public class MainActivity extends BaseActivity {
 
     void initNavDrawer() {
         drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-//        navigationView.setItemIconTintList(null);
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_guidelines, R.id.nav_essentials, R.id.nav_helpful_stuff, R.id.nav_states,
-//                R.id.nav_demographics,
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,
-//                R.id.navigation_helplines)
-//                .setDrawerLayout(drawer)
-//                .build();
+        //navigationView = findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,
                 R.id.navigation_helplines)
@@ -193,7 +171,6 @@ public class MainActivity extends BaseActivity {
                 .build();
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 

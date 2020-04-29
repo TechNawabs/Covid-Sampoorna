@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Covid-सम्पूर्ण</string>
+    <string name="copyright" translatable="false">"टेकनवाब्स, 2020 "</string>
+    <string name="signature">"भारत में निर्मित "</string>
+    <string name="health">स्वास्थ्य</string>
+    <string name="helpline">हेल्पलाइन</string>
+    <string name="title_activity_dashboard">डैशबोर्ड</string>
+    <string name="title_home">"होम "</string>
+    <string name="title_dashboard">डैशबोर्ड</string>
+    <string name="title_updates">कोविड अपडेट</string>
+    <string name="menu_guidelines">क्या करें / क्या नहीं</string>
+    <string name="menu_essentials">जरूरत सामग्री</string>
+    <string name="menu_helpful_stuff">सहायक सामग्री</string>
+    <string name="menu_states">राज्यों की रिपोर्ट</string>
+    <string name="menu_demographics">जनसांख्यिकी</string>
+    <string name="active_text">सक्रिय</string>
+    <string name="recovered_text">"रिकवर्ड "</string>
+    <string name="deceased_text">"मृतक "</string>
+    <string name="confirmed_text">कन्फर्म्ड</string>
+    <string name="daily_tab">रोज</string>
+    <string name="weekly_tab">साप्ताहिक</string>
+    <string name="monthly_tab">"मासिक "</string>
+    <string name="not_applicable">लागू नहीं</string>
+</resources>

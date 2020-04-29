@@ -11,10 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.technawabs.covid_sampurn.R;
 import com.airbnb.lottie.LottieAnimationView;
+import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseActivity;
 import com.technawabs.covid_sampurn.ui.main.MainActivity;
 

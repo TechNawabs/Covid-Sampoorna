@@ -30,20 +30,13 @@
                 android:scaleX="1.1"
                 app:srcCompat="@drawable/clouds"
                 tools:ignore="ContentDescription,VectorDrawableCompat" />
+
         </FrameLayout>
 
         <include
             layout="@layout/app_bar_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-<!--        <FrameLayout-->
-<!--            android:id="@+id/mainFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginTop="190dp"-->
-<!--            android:layout_marginBottom="104dp"-->
-<!--            />-->
 
         <fragment
             android:id="@+id/nav_host_fragment"
