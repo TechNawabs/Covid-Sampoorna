@@ -19,9 +19,9 @@ public class GraphFragment extends BaseFragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private GraphViewModel mViewModel;
-    WebView myView;
     @BindView(R.id.myView)
-    private int state;
+    WebView myView;
+    int state;
 
     public static GraphFragment newInstance(int index) {
         GraphFragment graphFragment = new GraphFragment();

@@ -162,8 +162,8 @@ public class MainActivity extends BaseActivity{
 
     void initNavDrawer() {
         drawer = findViewById(R.id.drawer_layout);
-        //navigationView = findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
+        navigationView = findViewById(R.id.nav_view);
+//        navigationView.setItemIconTintList(null);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,
                 R.id.navigation_helplines)
