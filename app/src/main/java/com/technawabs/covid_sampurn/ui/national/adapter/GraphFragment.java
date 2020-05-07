@@ -91,6 +91,8 @@ public class GraphFragment extends BaseFragment {
 
     @SuppressLint("SetJavaScriptEnabled")
     public void drawDailyChart() {
+
+
         String content = "<!DOCTYPE HTML>\n" +
                 "<html>\n" +
                 "<head></head>\n" +
