@@ -74,7 +74,7 @@ public class RawListAdapter extends RecyclerView.Adapter<RawListAdapter.RawListV
         @BindView(R.id.source1) TextView source1TextView;
         @BindView(R.id.source2) TextView source2TextView;
         @BindView(R.id.source3) TextView source3TextView;
-        @BindView(R.id.stateCode) TextView stateCodeTextView;
+//        @BindView(R.id.stateCode) TextView stateCodeTextView;
         @BindView(R.id.statePatientNumber) TextView statePatientNumberTextView;
         @BindView(R.id.statusChangeDate) TextView statusChangeDateTextView;
         @BindView(R.id.typeOfTransmission) TextView typeOfTransmissionTextView;
@@ -113,6 +113,7 @@ public class RawListAdapter extends RecyclerView.Adapter<RawListAdapter.RawListV
                 source1TextView.setText(rawData.getSource1().isEmpty() ? "NA" : rawData.getSource1());
                 source2TextView.setText(rawData.getSource2().isEmpty() ? "NA" : rawData.getSource2());
                 source3TextView.setText(rawData.getSource3().isEmpty() ? "NA" : rawData.getSource3());
+//                stateCodeTextView.setText(rawData.getStateCode().isEmpty() ? "NA" : rawData.getStateCode());
                 statePatientNumberTextView.setText(rawData.getStatePatientNumber().isEmpty() ? "NA" : rawData.getStatePatientNumber());
                 statusChangeDateTextView.setText(rawData.getStatusChangeDate().isEmpty() ? "NA" : rawData.getStatusChangeDate());
                 typeOfTransmissionTextView.setText(rawData.getTypeOfTransmission().isEmpty() ? "NA" : rawData.getTypeOfTransmission());

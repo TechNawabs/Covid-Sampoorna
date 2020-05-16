@@ -9,14 +9,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:layout_marginBottom="8dp"
+        android:padding="16dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/userImage"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@mipmap/icon_round"
-            app:cardCornerRadius="50dp"></androidx.cardview.widget.CardView>
+            app:cardCornerRadius="50dp" />
 
         <TextView
             android:id="@+id/backupNotes"
@@ -165,36 +166,36 @@
         </LinearLayout>
 
         <!--    detected district    -->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/detectedDistrictLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/detectedCityLayout"-->
-<!--            android:orientation="vertical"-->
-<!--            android:paddingTop="8dp"-->
-<!--            android:weightSum="2">-->
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/detectedDistrictLayout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@+id/detectedCityLayout"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:paddingTop="8dp"-->
+        <!--            android:weightSum="2">-->
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="District"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textSize="16sp" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:text="District"-->
+        <!--                android:textColor="#000000"-->
+        <!--                android:textSize="16sp" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/detectedDistrict"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/detectedCity" />-->
+        <!--            <TextView-->
+        <!--                android:id="@+id/detectedDistrict"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_below="@+id/detectedCity" />-->
 
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="1dp"-->
-<!--                android:background="#1CB793"-->
-<!--                android:paddingStart="4dp" />-->
+        <!--            <ImageView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="1dp"-->
+        <!--                android:background="#1CB793"-->
+        <!--                android:paddingStart="4dp" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
         <!--    detectedState    -->
         <LinearLayout
@@ -228,36 +229,36 @@
 
         </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/estimatedDateLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/detectedStateLayout"-->
-<!--            android:orientation="vertical"-->
-<!--            android:paddingTop="8dp"-->
-<!--            android:weightSum="2">-->
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/estimatedDateLayout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@+id/detectedStateLayout"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:paddingTop="8dp"-->
+        <!--            android:weightSum="2">-->
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="Estimated Date"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textSize="16sp" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:text="Estimated Date"-->
+        <!--                android:textColor="#000000"-->
+        <!--                android:textSize="16sp" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/estimatedOnSetDate"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/detectedStateLayout" />-->
+        <!--            <TextView-->
+        <!--                android:id="@+id/estimatedOnSetDate"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_below="@+id/detectedStateLayout" />-->
 
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="1dp"-->
-<!--                android:background="#1CB793"-->
-<!--                android:paddingStart="4dp" />-->
+        <!--            <ImageView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="1dp"-->
+        <!--                android:background="#1CB793"-->
+        <!--                android:paddingStart="4dp" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
         <!--    Gender    -->
         <LinearLayout
@@ -269,27 +270,24 @@
             android:paddingTop="8dp"
             android:weightSum="2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Gender"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gender"
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#1CB793"
-                android:paddingStart="4dp"
-                />
+                android:paddingStart="4dp" />
 
         </LinearLayout>
 
@@ -303,19 +301,20 @@
             android:paddingTop="8dp"
             android:weightSum="2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nationality"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/nationality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/gender" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nationality"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/nationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gender" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -325,68 +324,249 @@
         </LinearLayout>
 
         <!--    Notes    -->
-        <TextView
-            android:id="@+id/notes"
+        <LinearLayout
+            android:id="@+id/notesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nationalityLayout" />
+            android:layout_below="@+id/nationalityLayout"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Notes"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nationalityLayout" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1CB793"
+                android:paddingStart="4dp" />
+
+        </LinearLayout>
 
         <!--    Patient Number    -->
-        <TextView
-            android:id="@+id/patientNumber"
+        <LinearLayout
+            android:id="@+id/patientNumberLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/notes" />
+            android:layout_below="@+id/notesLayout"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:weightSum="2">
 
-        <!--    Source 1    -->
-        <TextView
-            android:id="@+id/source1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/patientNumber" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Patient Number"
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
-        <!--    Source 2    -->
-        <TextView
-            android:id="@+id/source2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/source1" />
+            <TextView
+                android:id="@+id/patientNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/notes" />
 
-        <!--    Source 3    -->
-        <TextView
-            android:id="@+id/source3"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1CB793"
+                android:paddingStart="4dp" />
+
+        </LinearLayout>
+
+        <!--    Sources    -->
+        <LinearLayout
+            android:id="@+id/sourcesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/source2" />
+            android:layout_below="@+id/patientNumberLayout"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sources"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_web_black_24dp"
+                />
+
+            <!--    Source 1    -->
+            <TextView
+                android:id="@+id/source1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patientNumber" />
+
+            <!--    Source 2    -->
+            <TextView
+                android:id="@+id/source2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/source1" />
+
+            <!--    Source 3    -->
+            <TextView
+                android:id="@+id/source3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/source2" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1CB793"
+                android:paddingStart="4dp" />
+
+        </LinearLayout>
 
         <!--    State Code    -->
-        <TextView
-            android:id="@+id/stateCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/source3" />
+<!--        <LinearLayout-->
+<!--            android:id="@+id/stateLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/sourcesLayout"-->
+<!--            android:orientation="vertical"-->
+<!--            android:paddingTop="8dp"-->
+<!--            android:weightSum="2">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="State Code"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16sp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/stateCode"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/source3" />-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="#1CB793"-->
+<!--                android:paddingStart="4dp" />-->
+
+<!--        </LinearLayout>-->
 
         <!--    State Patient Number    -->
-        <TextView
-            android:id="@+id/statePatientNumber"
+        <LinearLayout
+            android:id="@+id/statePatientNumberLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stateCode" />
+            android:layout_below="@+id/sourcesLayout"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="State Patient Number"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/statePatientNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stateCode" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1CB793"
+                android:paddingStart="4dp" />
+
+        </LinearLayout>
 
         <!--    Patient Status Change Date    -->
-        <TextView
-            android:id="@+id/statusChangeDate"
+        <LinearLayout
+            android:id="@+id/patientStatusChangeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/statePatientNumber" />
+            android:layout_below="@+id/statePatientNumberLayout"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Patient Status Change Date"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/statusChangeDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/statePatientNumber" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1CB793"
+                android:paddingStart="4dp" />
+
+        </LinearLayout>
 
         <!--    Type Of Transmission    -->
-        <TextView
-            android:id="@+id/typeOfTransmission"
+        <LinearLayout
+            android:id="@+id/transmissionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/statusChangeDate" />
+            android:layout_below="@+id/patientStatusChangeLayout"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:weightSum="2">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Transmission"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/typeOfTransmission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/statusChangeDate" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1CB793"
+                android:paddingStart="4dp" />
+
+        </LinearLayout>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
