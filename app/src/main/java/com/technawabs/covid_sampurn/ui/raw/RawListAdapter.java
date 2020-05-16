@@ -64,9 +64,9 @@ public class RawListAdapter extends RecyclerView.Adapter<RawListAdapter.RawListV
         @BindView(R.id.currentStatus) TextView currentStatusTextView;
         @BindView(R.id.dateAnnounced) TextView dateAnnouncedTextView;
         @BindView(R.id.detectedCity) TextView detectedCityTextView;
-        @BindView(R.id.detectedDistrict) TextView detectedDistrictTextView;
+//        @BindView(R.id.detectedDistrict) TextView detectedDistrictTextView;
         @BindView(R.id.detectedState) TextView detectedStateTextView;
-        @BindView(R.id.estimatedOnSetDate) TextView estimatedOnSetDateTextView;
+//        @BindView(R.id.estimatedOnSetDate) TextView estimatedOnSetDateTextView;
         @BindView(R.id.gender) TextView genderTextView;
         @BindView(R.id.nationality) TextView nationalityTextView;
         @BindView(R.id.notes) TextView notesTextView;
@@ -94,27 +94,28 @@ public class RawListAdapter extends RecyclerView.Adapter<RawListAdapter.RawListV
         }
 
         void bind(@NonNull RawData rawData) {
+            this.rawData = rawData;
             if (rawData != null) {
                 backupNotesTextView.setText(rawData.getBackupNotes());
-                ageBracketTextView.setText(rawData.getAgeBracket());
+                ageBracketTextView.setText(rawData.getAgeBracket().isEmpty() ? "NA" : rawData.getAgeBracket() + " years");
                 contractedFromWhichPatientSuspectedTextView
-                        .setText(rawData.getContractedFromWhichPatientSuspected());
-                currentStatusTextView.setText(rawData.getCurrentStatus());
-                dateAnnouncedTextView.setText(rawData.getDateAnnounced());
-                detectedCityTextView.setText(rawData.getDetectedCity());
-                detectedDistrictTextView.setText(rawData.getDetectedDistrict());
-                detectedStateTextView.setText(rawData.getDetectedState());
-                estimatedOnSetDateTextView.setText(rawData.getEstimatedOnSetDate());
-                genderTextView.setText(rawData.getGender());
-                nationalityTextView.setText(rawData.getNationality());
-                notesTextView.setText(rawData.getNotes());
-                patientNumberTextView.setText(rawData.getPatientNumber());
-                source1TextView.setText(rawData.getSource1());
-                source2TextView.setText(rawData.getSource2());
-                source3TextView.setText(rawData.getSource3());
-                statePatientNumberTextView.setText(rawData.getStatePatientNumber());
-                statusChangeDateTextView.setText(rawData.getStatusChangeDate());
-                typeOfTransmissionTextView.setText(rawData.getTypeOfTransmission());
+                        .setText(rawData.getContractedFromWhichPatientSuspected().isEmpty() ? "NA" : rawData.getContractedFromWhichPatientSuspected());
+                currentStatusTextView.setText(rawData.getCurrentStatus().isEmpty() ? "NA" : rawData.getCurrentStatus());
+                dateAnnouncedTextView.setText(rawData.getDateAnnounced().isEmpty() ? "NA" : rawData.getDateAnnounced());
+                detectedCityTextView.setText(rawData.getDetectedCity().isEmpty() ? "NA" : rawData.getDetectedCity());
+//                detectedDistrictTextView.setText(rawData.getDetectedDistrict());
+                detectedStateTextView.setText(rawData.getDetectedState().isEmpty() ? "NA" : rawData.getDetectedState());
+//                estimatedOnSetDateTextView.setText(rawData.getEstimatedOnSetDate());
+                genderTextView.setText(rawData.getGender().isEmpty() ? "NA" : rawData.getGender());
+                nationalityTextView.setText(rawData.getNationality().isEmpty() ? "NA" : rawData.getNationality());
+                notesTextView.setText(rawData.getNotes().isEmpty() ? "NA" : rawData.getNotes());
+                patientNumberTextView.setText(rawData.getPatientNumber().isEmpty() ? "NA" : rawData.getPatientNumber());
+                source1TextView.setText(rawData.getSource1().isEmpty() ? "NA" : rawData.getSource1());
+                source2TextView.setText(rawData.getSource2().isEmpty() ? "NA" : rawData.getSource2());
+                source3TextView.setText(rawData.getSource3().isEmpty() ? "NA" : rawData.getSource3());
+                statePatientNumberTextView.setText(rawData.getStatePatientNumber().isEmpty() ? "NA" : rawData.getStatePatientNumber());
+                statusChangeDateTextView.setText(rawData.getStatusChangeDate().isEmpty() ? "NA" : rawData.getStatusChangeDate());
+                typeOfTransmissionTextView.setText(rawData.getTypeOfTransmission().isEmpty() ? "NA" : rawData.getTypeOfTransmission());
 
             }
         }

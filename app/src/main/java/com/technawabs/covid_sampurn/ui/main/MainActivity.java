@@ -121,25 +121,22 @@ public class MainActivity extends BaseActivity{
             public void onNavigationChanged(View view, int position) {
                 switch (position) {
                     case 0:
-                        Toast.makeText(getApplicationContext(), "This is Home", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "This is Home", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_host_fragment, new NationalListFragment())
                                 .commit();
                         break;
                     case 1:
-                        Toast.makeText(getApplicationContext(), "This is Dashboard", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_host_fragment, new DailyListFragment())
                                 .commit();
                         break;
                     case 2:
-                        Toast.makeText(getApplicationContext(), "This is Covid Updates", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_host_fragment, new RawListFragment())
                                 .commit();
                         break;
                     case 3:
-                        Toast.makeText(getApplicationContext(), "This is Helpline", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_host_fragment, new HelplineFragment())
                                 .commit();
