@@ -1,6 +1,7 @@
 package com.technawabs.covid_sampurn.di.module;
 
 import com.technawabs.covid_sampurn.data.rest.daily.DailyService;
+import com.technawabs.covid_sampurn.data.rest.helpline.HelplineService;
 import com.technawabs.covid_sampurn.data.rest.national.NationalService;
 import com.technawabs.covid_sampurn.data.rest.raw.RawService;
 import com.technawabs.covid_sampurn.data.rest.state.StateService;
@@ -32,6 +33,12 @@ public class ApplicationModule {
     @Provides
     static DailyService provideDailyService(Retrofit retrofit) {
         return retrofit.create(DailyService.class);
+    }
+
+    @Singleton
+    @Provides
+    static HelplineService provideHelplineService(Retrofit retrofit) {
+        return retrofit.create(HelplineService.class);
     }
 
     @Singleton

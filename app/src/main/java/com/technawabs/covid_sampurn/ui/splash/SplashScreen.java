@@ -16,6 +16,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.technawabs.covid_sampurn.GraphSample;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseActivity;
+import com.technawabs.covid_sampurn.ui.main.MainActivity;
 
 public class SplashScreen extends BaseActivity {
     TextView tv;
@@ -81,7 +82,7 @@ public class SplashScreen extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(getApplicationContext(), GraphSample.class);
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();

@@ -13,23 +13,40 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.technawabs.covid_sampurn.R;
+import com.technawabs.covid_sampurn.base.BaseFragment;
+import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
 
-public class AdviceFragment extends Fragment {
+import javax.inject.Inject;
 
+import butterknife.BindView;
+
+public class AdviceFragment extends BaseFragment {
+
+    @BindView(R.id.text_advice)
+    TextView textView;
+    @Inject
+    ViewModelFactory viewModelFactory;
     private AdviceViewModel adviceViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        adviceViewModel =
-                ViewModelProviders.of(this).get(AdviceViewModel.class);
-        View root = inflater.inflate(R.layout.advice_fragment, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+    @Override
+    protected int layoutRes() {
+        return R.layout.advice_fragment;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        adviceViewModel = ViewModelProviders.of(this, viewModelFactory)
+                        .get(AdviceViewModel.class);
+        observableViewModel();
+    }
+
+    private void observableViewModel() {
         adviceViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
-            public void onChanged(@Nullable String s) {
+            public void onChanged(String s) {
                 textView.setText(s);
             }
         });
-        return root;
     }
+
 }

@@ -1,23 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.notifications.NotificationsFragment">
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--  Helpline Number  -->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/helplineNumberCard"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            app:cardCornerRadius="12dp"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:layout_below="@+id/text_notifications"-->
+<!--            >-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2"-->
+<!--                >-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:weightSum="2"-->
+<!--                    android:padding="8dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/helplineNumberText"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:text="Helpline Number"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textColor="#000000"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_weight="1"-->
+<!--                        >-->
+
+<!--                    </TextView>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/helplineNumber"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        >-->
+
+<!--                    </TextView>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:weightSum="3"-->
+<!--                    android:padding="18dp"-->
+<!--                    >-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        />-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView"-->
+<!--                        android:layout_width="42dp"-->
+<!--                        android:layout_height="42dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:src="@drawable/ic_call">-->
+
+<!--                    </ImageView>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        &lt;!&ndash;  TollFree Number  &ndash;&gt;-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/tollFreeNumberCard"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            app:cardCornerRadius="12dp"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:layout_below="@+id/helplineNumberCard"-->
+<!--            >-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2"-->
+<!--                >-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:weightSum="2"-->
+<!--                    android:padding="8dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/tollFreeNumberText"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:text="Toll Free Number"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textColor="#000000"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_weight="1"-->
+<!--                        >-->
+
+<!--                    </TextView>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/tollFreeNumber"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        >-->
+
+<!--                    </TextView>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:weightSum="3"-->
+<!--                    android:padding="18dp"-->
+<!--                    >-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="42dp"-->
+<!--                        android:layout_height="42dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:src="@drawable/ic_call">-->
+
+<!--                    </ImageView>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        &lt;!&ndash;  Helpline Email  &ndash;&gt;-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/helplineEmailCard"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            app:cardCornerRadius="12dp"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:layout_below="@+id/tollFreeNumberCard"-->
+<!--            >-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2"-->
+<!--                >-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:weightSum="2"-->
+<!--                    android:padding="8dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/helplineEmailText"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:text="Helpline Email"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textColor="#000000"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_weight="1"-->
+<!--                        >-->
+
+<!--                    </TextView>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/helplineEmail"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        >-->
+
+<!--                    </TextView>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:weightSum="3"-->
+<!--                    android:padding="18dp"-->
+<!--                    >-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="42dp"-->
+<!--                        android:layout_height="42dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:src="@drawable/ic_email">-->
+
+<!--                    </ImageView>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+        <!--    State    -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/text_notifications"
+            android:id="@+id/recyclerViewHelpline"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</FrameLayout>

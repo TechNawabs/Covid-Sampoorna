@@ -5,6 +5,13 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/dashboard_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
 <!--    <com.facebook.shimmer.ShimmerFrameLayout-->
 <!--        android:id="@+id/travelShimmerFrameLayout"-->
 <!--        android:layout_width="match_parent"-->

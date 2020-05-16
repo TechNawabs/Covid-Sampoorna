@@ -4,39 +4,51 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.technawabs.covid_sampurn.R;
+import com.technawabs.covid_sampurn.base.BaseFragment;
+import com.technawabs.covid_sampurn.ui.national.NationalViewModel;
+import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
 
-public class DashboardFragment extends Fragment {
+import javax.inject.Inject;
+
+import butterknife.BindView;
+
+public class DashboardFragment extends BaseFragment {
 
     private static String TAG = DashboardFragment.class.getSimpleName();
-    private DashboardViewModel dashboardViewModel;
+    @BindView(R.id.dashboard_text)
+    TextView textView;
+    @Inject
+    ViewModelFactory viewModelFactory;
+    DashboardViewModel dashboardViewModel;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.dashboard_list_fragment, container, false);
-        return root;
-    }
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected int layoutRes() {
+        return R.layout.dashboard_list_fragment;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        dashboardViewModel = ViewModelProviders.of(this, viewModelFactory)
+                .get(DashboardViewModel.class);
+        observableViewModel();
+    }
+
+    private void observableViewModel() {
+        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                textView.setText(s);
+            }
+        });
     }
 
 }

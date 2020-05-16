@@ -4,7 +4,10 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.technawabs.covid_sampurn.di.util.ViewModelKey;
+import com.technawabs.covid_sampurn.ui.advice.AdviceViewModel;
 import com.technawabs.covid_sampurn.ui.daily.DailyViewModel;
+import com.technawabs.covid_sampurn.ui.dashboard.DashboardViewModel;
+import com.technawabs.covid_sampurn.ui.helplines.HelplineViewModel;
 import com.technawabs.covid_sampurn.ui.national.NationalViewModel;
 import com.technawabs.covid_sampurn.ui.raw.RawViewModel;
 import com.technawabs.covid_sampurn.ui.state.StateViewModel;
@@ -18,6 +21,14 @@ import dagger.multibindings.IntoMap;
 @Module
 public abstract class ViewModelModule {
 
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(AdviceViewModel.class)
+//    abstract ViewModel bindAdviceResponse(AdviceViewModel adviceViewModel);
+//
+//    @Binds
+//    abstract ViewModelProvider.Factory bindAdviceResponseFactory(ViewModelFactory viewModelFactory);
+
     @Binds
     @IntoMap
     @ViewModelKey(DailyViewModel.class)
@@ -25,6 +36,22 @@ public abstract class ViewModelModule {
 
     @Binds
     abstract ViewModelProvider.Factory bindTrendingRepositoryResponseFactory(ViewModelFactory viewModelFactory);
+
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(DashboardViewModel.class)
+//    abstract ViewModel bindDashboardResponse(DashboardViewModel dashboardViewModel);
+//
+//    @Binds
+//    abstract ViewModelProvider.Factory bindDashboardResponseFactory(ViewModelFactory viewModelFactory);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HelplineViewModel.class)
+    abstract ViewModel bindHelplineResponse(HelplineViewModel helplineViewModel);
+
+    @Binds
+    abstract ViewModelProvider.Factory bindHelplineResponseFactory(ViewModelFactory viewModelFactory);
 
     @Binds
     @IntoMap
