@@ -22,6 +22,11 @@ public class RawViewModel extends ViewModel {
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
+    private final MutableLiveData<String> playStoreURL = new MutableLiveData<>("https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu");
+    private final MutableLiveData<String> webPageURL = new MutableLiveData<>("https://www.mygov.in/aarogya-setu-app/");
+    private final MutableLiveData<String> facebookPageURL = new MutableLiveData<>("https://www.facebook.com/MyGovIndia/");
+    private final MutableLiveData<String> twitterPageURL = new MutableLiveData<>("https://twitter.com/mygovindia");
+
     @Inject
     public RawViewModel(RawRepository rawRepository) {
         this.rawRepository = rawRepository;
@@ -60,5 +65,21 @@ public class RawViewModel extends ViewModel {
                 loading.setValue(false);
             }
         }));
+    }
+
+    public MutableLiveData<String> getPlayStoreURL() {
+        return playStoreURL;
+    }
+
+    public MutableLiveData<String> getWebPageURL() {
+        return webPageURL;
+    }
+
+    public MutableLiveData<String> getFacebookPageURL() {
+        return facebookPageURL;
+    }
+
+    public MutableLiveData<String> getTwitterPageURL() {
+        return twitterPageURL;
     }
 }
