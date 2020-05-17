@@ -28,6 +28,7 @@ import com.technawabs.covid_sampurn.ui.demographic.DemographicFragment;
 import com.technawabs.covid_sampurn.ui.essential.EssentialFragment;
 import com.technawabs.covid_sampurn.ui.helplines.HelplineFragment;
 import com.technawabs.covid_sampurn.ui.national.NationalListFragment;
+import com.technawabs.covid_sampurn.ui.notifications.NotificationsFragment;
 import com.technawabs.covid_sampurn.ui.raw.RawListFragment;
 import com.technawabs.covid_sampurn.ui.state.StateListFragment;
 import com.technawabs.covid_sampurn.ui.travel.TravelListFragment;
@@ -121,19 +122,18 @@ public class MainActivity extends BaseActivity{
             public void onNavigationChanged(View view, int position) {
                 switch (position) {
                     case 0:
-//                        Toast.makeText(getApplicationContext(), "This is Home", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.nav_host_fragment, new NationalListFragment())
                                 .commit();
                         break;
                     case 1:
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.nav_host_fragment, new DailyListFragment())
+                                .replace(R.id.nav_host_fragment, new RawListFragment())
                                 .commit();
                         break;
                     case 2:
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.nav_host_fragment, new RawListFragment())
+                                .replace(R.id.nav_host_fragment, new NotificationsFragment())
                                 .commit();
                         break;
                     case 3:

@@ -7,8 +7,11 @@ import com.technawabs.covid_sampurn.di.util.ViewModelKey;
 import com.technawabs.covid_sampurn.ui.advice.AdviceViewModel;
 import com.technawabs.covid_sampurn.ui.daily.DailyViewModel;
 import com.technawabs.covid_sampurn.ui.dashboard.DashboardViewModel;
+import com.technawabs.covid_sampurn.ui.demographic.DemographicViewModel;
+import com.technawabs.covid_sampurn.ui.essential.EssentialViewModel;
 import com.technawabs.covid_sampurn.ui.helplines.HelplineViewModel;
 import com.technawabs.covid_sampurn.ui.national.NationalViewModel;
+import com.technawabs.covid_sampurn.ui.notifications.NotificationsViewModel;
 import com.technawabs.covid_sampurn.ui.raw.RawViewModel;
 import com.technawabs.covid_sampurn.ui.state.StateViewModel;
 import com.technawabs.covid_sampurn.ui.travel.TravelViewModel;
@@ -21,13 +24,10 @@ import dagger.multibindings.IntoMap;
 @Module
 public abstract class ViewModelModule {
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(AdviceViewModel.class)
-//    abstract ViewModel bindAdviceResponse(AdviceViewModel adviceViewModel);
-//
-//    @Binds
-//    abstract ViewModelProvider.Factory bindAdviceResponseFactory(ViewModelFactory viewModelFactory);
+    @Binds
+    @IntoMap
+    @ViewModelKey(AdviceViewModel.class)
+    abstract ViewModel bindAdviceResponse(AdviceViewModel adviceViewModel);
 
     @Binds
     @IntoMap
@@ -35,15 +35,19 @@ public abstract class ViewModelModule {
     abstract ViewModel bindDailyRepositoryResponse(DailyViewModel repositoryResponseViewModel);
 
     @Binds
-    abstract ViewModelProvider.Factory bindTrendingRepositoryResponseFactory(ViewModelFactory viewModelFactory);
+    @IntoMap
+    @ViewModelKey(DashboardViewModel.class)
+    abstract ViewModel bindDashboardResponse(DashboardViewModel dashboardViewModel);
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(DashboardViewModel.class)
-//    abstract ViewModel bindDashboardResponse(DashboardViewModel dashboardViewModel);
-//
-//    @Binds
-//    abstract ViewModelProvider.Factory bindDashboardResponseFactory(ViewModelFactory viewModelFactory);
+    @Binds
+    @IntoMap
+    @ViewModelKey(DemographicViewModel.class)
+    abstract ViewModel bindDemographicResponse(DemographicViewModel demographicViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(EssentialViewModel.class)
+    abstract ViewModel bindEssentialResponse(EssentialViewModel essentialViewModel);
 
     @Binds
     @IntoMap
@@ -51,16 +55,14 @@ public abstract class ViewModelModule {
     abstract ViewModel bindHelplineResponse(HelplineViewModel helplineViewModel);
 
     @Binds
-    abstract ViewModelProvider.Factory bindHelplineResponseFactory(ViewModelFactory viewModelFactory);
-
-    @Binds
     @IntoMap
     @ViewModelKey(NationalViewModel.class)
     abstract ViewModel bindNationalRepositoryResponse(NationalViewModel nationalViewModel);
 
     @Binds
-    abstract ViewModelProvider.Factory bindNationalRepositoryResponseFactory(
-            ViewModelFactory viewModelFactory);
+    @IntoMap
+    @ViewModelKey(NotificationsViewModel.class)
+    abstract ViewModel bindNotificationsResponse(NotificationsViewModel notificationsViewModel);
 
     @Binds
     @IntoMap
@@ -68,17 +70,9 @@ public abstract class ViewModelModule {
     abstract ViewModel bindRawRepositoryResponse(RawViewModel rawViewModel);
 
     @Binds
-    abstract ViewModelProvider.Factory bindRawRepositoryResponseFactory(
-            ViewModelFactory viewModelFactory);
-
-    @Binds
     @IntoMap
     @ViewModelKey(StateViewModel.class)
     abstract ViewModel bindStateRepositoryResponse(StateViewModel rawViewModel);
-
-    @Binds
-    abstract ViewModelProvider.Factory bindStateRepositoryResponseFactory(
-            ViewModelFactory viewModelFactory);
 
     @Binds
     @IntoMap
