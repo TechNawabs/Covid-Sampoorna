@@ -28,6 +28,7 @@ import com.technawabs.covid_sampurn.ui.demographic.DemographicFragment;
 import com.technawabs.covid_sampurn.ui.essential.EssentialFragment;
 import com.technawabs.covid_sampurn.ui.helplines.HelplineFragment;
 import com.technawabs.covid_sampurn.ui.national.NationalListFragment;
+import com.technawabs.covid_sampurn.ui.national.adapter.GraphFragment;
 import com.technawabs.covid_sampurn.ui.notifications.NotificationsFragment;
 import com.technawabs.covid_sampurn.ui.raw.RawListFragment;
 import com.technawabs.covid_sampurn.ui.state.StateListFragment;
@@ -117,6 +118,10 @@ public class MainActivity extends BaseActivity{
         //bottomFrame.setTypeface(Typeface.createFromAsset(getAssets(), "coffeesugar.ttf"));
         bottomFrame.setBadgeValue(2, "");
 
+//        GraphFragment graphFragment = new GraphFragment();
+//        GraphFragment.newInstance(0);
+//        GraphFragment.newInstance(1);
+//        GraphFragment.newInstance(2);
         bottomFrame.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
             public void onNavigationChanged(View view, int position) {
@@ -168,7 +173,7 @@ public class MainActivity extends BaseActivity{
                 .build();
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupWithNavController(navigationView, navController);
+//        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
     @Override

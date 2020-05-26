@@ -24,21 +24,87 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabs"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="64dp"
-                    android:layout_marginRight="64dp"
-                    />
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    >
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/view_pager"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/totalCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="8dp"
+                        android:textAlignment="center"
+                        android:layout_margin="8dp"
+                        >
+                        <TextView
+                            android:id="@+id/totalCardText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Daily"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/monthlyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="8dp"
+                        android:textAlignment="center"
+                        android:layout_margin="8dp"
+                        >
+                    <TextView
+                        android:id="@+id/monthlyCardText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Weekly"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weeklyCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="8dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:layout_margin="8dp"
+                        >
+                    <TextView
+                        android:id="@+id/weeklyCardText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Monthly"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <com.anychart.AnyChartView
+                    android:id="@+id/any_chart_view"
                     android:layout_width="match_parent"
                     android:layout_height="600dp"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
+                    />
             </LinearLayout>
 
         </LinearLayout>

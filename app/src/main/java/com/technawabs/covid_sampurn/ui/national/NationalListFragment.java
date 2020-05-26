@@ -8,20 +8,39 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Area;
+import com.anychart.core.ui.Crosshair;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.ScaleStackMode;
+import com.anychart.enums.TooltipDisplayMode;
+import com.anychart.graphics.vector.Stroke;
 import com.google.android.material.tabs.TabLayout;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseFragment;
 import com.technawabs.covid_sampurn.data.model.national.NationalTimeData;
+import com.technawabs.covid_sampurn.ui.national.adapter.GraphFragment;
 import com.technawabs.covid_sampurn.ui.national.adapter.SectionsPagerAdapter;
 import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -79,10 +98,26 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     @BindView(R.id.deceased_growth_down)
     LinearLayout deceasedGrowthDownView;
     //    Tabs
-    @BindView(R.id.view_pager)
-    ViewPager viewPager;
-    @BindView(R.id.tabs)
-    TabLayout graphViewTabs;
+//    @BindView(R.id.view_pager)
+//    ViewPager viewPager;
+//    @BindView(R.id.tabs)
+//    TabLayout graphViewTabs;
+    @BindView(R.id.any_chart_view)
+    AnyChartView anyChartView;
+//    tabs
+    @BindView(R.id.totalCard)
+    CardView totalCard;
+    @BindView(R.id.totalCardText)
+    TextView totalCardText;
+    @BindView(R.id.monthlyCard)
+    CardView monthlyCard;
+    @BindView(R.id.monthlyCardText)
+    TextView monthlyCardText;
+    @BindView(R.id.weeklyCard)
+    CardView weeklyCard;
+    @BindView(R.id.weeklyCardText)
+    TextView weeklyCardText;
+
 
     private SectionsPagerAdapter sectionsPagerAdapter;
 
@@ -90,10 +125,8 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     ViewModelFactory viewModelFactory;
     private NationalViewModel nationalViewModel;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private static final String ARG_SECTION_NUMBER = "section_number";
+
 
     @Override
     protected int layoutRes() {
@@ -104,14 +137,24 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         nationalViewModel = ViewModelProviders.of(this, viewModelFactory)
         .get(NationalViewModel.class);
+//        GraphFragment graphFragment = new GraphFragment();
         //        recyclerView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
 //        recyclerView.setAdapter(new NationalListAdapter(nationalViewModel, this, this));
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        sectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getParentFragmentManager());
-        Log.d(TAG, "Sre: "+sectionsPagerAdapter.getCount());
-        viewPager.setAdapter(sectionsPagerAdapter);
-        graphViewTabs.setupWithViewPager(viewPager);
+
+//        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
+//        graphViewTabs = (TabLayout) view.findViewById(R.id.tabs);
+//        sectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getParentFragmentManager());
+//        Log.d(TAG, "Sre: "+sectionsPagerAdapter.getCount());
+//        viewPager.setAdapter(sectionsPagerAdapter);
+//        graphViewTabs.setupWithViewPager(viewPager);
+
+//        sectionsPagerAdapter = new SectionsPagerAdapter(getContext(), getParentFragmentManager());
+//        viewPager.setAdapter(sectionsPagerAdapter);
+//        graphViewTabs.setupWithViewPager(viewPager);
+        tabClickLogic();
         observableViewModel();
+        nationalViewModel.drawDailyChart(anyChartView);
     }
 
     @Override
@@ -216,5 +259,75 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
         });
     }
 
+    private void tabClickLogic() {
+//        set total as active
+        totalCard.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        totalCardText.setTextColor(getResources().getColor(R.color.white));
+
+        totalCardText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (totalCard.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.design_default_color_primary)) {
+//                    set inactive
+                    totalCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    totalCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+                } else {
+//                    set active
+                    totalCard.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    totalCardText.setTextColor(getResources().getColor(R.color.white));
+
+                    weeklyCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    weeklyCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+
+                    monthlyCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    monthlyCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+
+                }
+            }
+        });
+
+        weeklyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (weeklyCard.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.design_default_color_primary)) {
+//                    set inactive
+                    weeklyCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    weeklyCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+                } else {
+//                    set active
+                    weeklyCard.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    weeklyCardText.setTextColor(getResources().getColor(R.color.white));
+
+                    totalCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    totalCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+
+                    monthlyCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    monthlyCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+                }
+            }
+        });
+
+        monthlyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (monthlyCard.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.design_default_color_primary)) {
+//                    set inactive
+                    monthlyCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    monthlyCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+                } else {
+//                    set active
+                    monthlyCard.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    monthlyCardText.setTextColor(getResources().getColor(R.color.white));
+
+                    totalCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    totalCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+
+                    weeklyCard.setCardBackgroundColor(getResources().getColor(R.color.white));
+                    weeklyCardText.setTextColor(getResources().getColor(R.color.black_overlay));
+
+                }
+            }
+        });
+    }
 
 }

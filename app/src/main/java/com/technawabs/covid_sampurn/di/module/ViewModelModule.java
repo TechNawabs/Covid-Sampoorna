@@ -11,6 +11,7 @@ import com.technawabs.covid_sampurn.ui.demographic.DemographicViewModel;
 import com.technawabs.covid_sampurn.ui.essential.EssentialViewModel;
 import com.technawabs.covid_sampurn.ui.helplines.HelplineViewModel;
 import com.technawabs.covid_sampurn.ui.national.NationalViewModel;
+import com.technawabs.covid_sampurn.ui.national.adapter.GraphViewModel;
 import com.technawabs.covid_sampurn.ui.notifications.NotificationsViewModel;
 import com.technawabs.covid_sampurn.ui.raw.RawViewModel;
 import com.technawabs.covid_sampurn.ui.state.StateViewModel;
@@ -48,6 +49,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(EssentialViewModel.class)
     abstract ViewModel bindEssentialResponse(EssentialViewModel essentialViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GraphViewModel.class)
+    abstract ViewModel bindGraphResponse(GraphViewModel graphViewModel);
 
     @Binds
     @IntoMap

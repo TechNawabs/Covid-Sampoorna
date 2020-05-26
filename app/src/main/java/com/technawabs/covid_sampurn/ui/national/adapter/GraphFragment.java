@@ -2,26 +2,37 @@ package com.technawabs.covid_sampurn.ui.national.adapter;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.anychart.AnyChartView;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseFragment;
+import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class GraphFragment extends BaseFragment {
+public class GraphFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private GraphViewModel mViewModel;
+
     @BindView(R.id.myView)
     WebView myView;
     int state;
+
+    @Inject
+    ViewModelFactory viewModelFactory;
+    private GraphViewModel graphViewModel;
 
     public static GraphFragment newInstance(int index) {
         GraphFragment graphFragment = new GraphFragment();
@@ -31,44 +42,27 @@ public class GraphFragment extends BaseFragment {
         return graphFragment;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(GraphViewModel.class);
-        int index = 1;
-        if(getArguments() != null) {
-            index = getArguments().getInt(ARG_SECTION_NUMBER);
-            state = index;
-        }
-    }
-
-    @Override
-    protected int layoutRes() {
-        return R.layout.graph_fragment;
-    }
-
 //    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-//                             @Nullable Bundle savedInstanceState) {
-//        View root = inflater.inflate(R.layout.graph_fragment, container, false);
-//        anyChartView = (AnyChartView) root.findViewById(R.id.any_chart_view);
-//        switch (state) {
-//            case 2:
-//                drawWeeklyChart();
-//                break;
-//            case 3:
-//                drawMonthlyChart();
-//                break;
-//            case 1:
-//                drawDailyChart();
-//                break;
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        mViewModel = ViewModelProviders.of(this).get(GraphViewModel.class);
+//        int index = 1;
+//        if(getArguments() != null) {
+//            index = getArguments().getInt(ARG_SECTION_NUMBER);
+//            state = index;
 //        }
-//        return root;
 //    }
 
+//    @Override
+//    protected int layoutRes() {
+//        return R.layout.graph_fragment;
+//    }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.graph_fragment, container, false);
+        myView = (WebView) root.findViewById(R.id.myView);
         switch (state) {
             case 2:
                 drawWeeklyChart();
@@ -80,14 +74,33 @@ public class GraphFragment extends BaseFragment {
                 drawDailyChart();
                 break;
         }
+        return root;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(GraphViewModel.class);
-        // TODO: Use the ViewModel
-    }
+
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        graphViewModel = ViewModelProviders.of(this, viewModelFactory)
+//                .get(GraphViewModel.class);
+//        int index = 1;
+//        if(getArguments() != null) {
+//            index = getArguments().getInt(ARG_SECTION_NUMBER);
+//            state = index;
+//        } else {
+//            state = 1;
+//        }
+//        switch (state) {
+//            case 1:
+//                drawWeeklyChart();
+//                break;
+//            case 2:
+//                drawMonthlyChart();
+//                break;
+//            case 3:
+//                drawDailyChart();
+//                break;
+//        }
+//    }
 
     @SuppressLint("SetJavaScriptEnabled")
     public void drawDailyChart() {
