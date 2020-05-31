@@ -2,14 +2,18 @@ package com.technawabs.covid_sampurn.ui.notifications;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -17,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseFragment;
 import com.technawabs.covid_sampurn.ui.raw.RawViewModel;
@@ -33,13 +38,17 @@ public class NotificationsFragment extends BaseFragment {
     @BindView(R.id.appInstalled)
     ImageView appInstalled;
     @BindView(R.id.webPage)
-    ImageView webPage;
+    LottieAnimationView webPage;
     @BindView(R.id.facebookPage)
-    ImageView facebookPage;
+    LottieAnimationView facebookPage;
     @BindView(R.id.twitterPage)
-    ImageView twitterPage;
+    LottieAnimationView twitterPage;
     @BindView(R.id.aarogyaSetuCard)
     CardView aarogyaCard;
+    @BindView(R.id.downloadOrInstalled)
+    TextView downldOrInst;
+
+    Animation riseUp;
 
     @Inject
     ViewModelFactory viewModelFactory;
@@ -56,6 +65,8 @@ public class NotificationsFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        riseUp = AnimationUtils.loadAnimation(getContext(), R.anim.rise_up);
+        aarogyaCard.startAnimation(riseUp);
         notificationsViewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(NotificationsViewModel.class);
         observableViewModel();
@@ -73,9 +84,13 @@ public class NotificationsFragment extends BaseFragment {
         if (isAarogayaAppInstalled) {
             appInstalled.setVisibility(View.VISIBLE);
             playStore.setVisibility(View.GONE);
+            downldOrInst.setText(R.string.installed);
+            downldOrInst.setTextColor(Color.BLUE);
         } else {
             appInstalled.setVisibility(View.GONE);
             playStore.setVisibility(View.VISIBLE);
+            downldOrInst.setText(R.string.download);
+            downldOrInst.setTextColor(Color.BLUE);
         }
         notificationsViewModel.getPlayStoreURL().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

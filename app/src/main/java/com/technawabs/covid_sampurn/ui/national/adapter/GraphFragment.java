@@ -12,8 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.base.BaseFragment;
 import com.technawabs.covid_sampurn.viewmodel.ViewModelFactory;
@@ -104,54 +102,6 @@ public class GraphFragment extends Fragment {
 
     @SuppressLint("SetJavaScriptEnabled")
     public void drawDailyChart() {
-
-
-        String content = "<!DOCTYPE HTML>\n" +
-                "<html>\n" +
-                "<head></head>\n" +
-                "<body>\n" +
-                "<canvas id=\"mychart\"></canvas>\n" +
-                "<script src=\"https://cdn.jsdelivr.net/npm/chart.js@2.8.0\"></script>\n" +
-                "<script>\n" +
-                "var ctx = document.getElementById(\"mychart\").getContext(\"2d\");\n" +
-                "var chart = new Chart(ctx, {\n" +
-                "type: 'line',\n" +
-                "data: {\n" +
-                "labels: [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\"],\n" +
-                "datasets: [{\n" +
-                "label: \"My First dataset\",\n" +
-                "backgroundColor: \"rgba(255, 128, 171, 0.4)\",\n" +
-                "data: [65, 59, 80, 81, 56, 55, 40]\n" +
-                "}, \n" +
-                "{\n" +
-                "label: \"My Second dataset\",\n" +
-                "backgroundColor: \"rgba(179, 136, 255, 0.6)\",\n" +
-                "data: [28, 48, 40, 19, 86, 27, 90]\n" +
-                "}]\n" +
-                "},\n" +
-                "options: {\n" +
-                "scales: {\n" +
-                "xAxes: [{\n" +
-                "gridLines: {\n" +
-                "display:false\n" +
-                "}\n" +
-                "}],\n" +
-                "yAxes: [{\n" +
-                "gridLines: {\n" +
-                "display:false\n" +
-                "}   \n" +
-                "}]\n" +
-                "}\n" +
-                "}\n" +
-                "});\n" +
-                "</script>\n" +
-                "</body>\n" +
-                "</html>";
-
-        myView.getSettings().setJavaScriptEnabled(true);
-        myView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myView.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null);
-
 //        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 //        Cartesian areaChart = AnyChart.area();
 //
@@ -242,14 +192,14 @@ public class GraphFragment extends Fragment {
 
     }
 
-    private class CustomDataEntry extends ValueDataEntry {
-        CustomDataEntry(String x, Number value, Number value2, Number value3, Number value4, Number value5) {
-            super(x, value);
-            setValue("value2", value2);
-            setValue("value3", value3);
-            setValue("value4", value4);
-            setValue("value5", value5);
-        }
-    }
+//    private class CustomDataEntry extends ValueDataEntry {
+//        CustomDataEntry(String x, Number value, Number value2, Number value3, Number value4, Number value5) {
+//            super(x, value);
+//            setValue("value2", value2);
+//            setValue("value3", value3);
+//            setValue("value4", value4);
+//            setValue("value5", value5);
+//        }
+//    }
 
 }

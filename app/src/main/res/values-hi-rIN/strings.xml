@@ -22,4 +22,12 @@
     <string name="weekly_tab">साप्ताहिक</string>
     <string name="monthly_tab">"मासिक "</string>
     <string name="not_applicable">लागू नहीं</string>
+    <string name="govtApp">"आरोग्य सेतु "</string>
+    <string name="govtText">"भारत सरकार के सौजन्य से "</string>
+    <string name="installed">पहले से स्थापित</string>
+    <string name="download">डाउनलोड</string>
+    <string name="webLinks">वेब लिंक</string>
+    <string name="ministryText">सरकार</string>
+    <string name="facebookText">फेसबुक</string>
+    <string name="twitterText">ट्विटर</string>
 </resources>

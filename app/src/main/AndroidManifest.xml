@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".GraphSample"></activity>
         <activity android:name=".ui.main.MainActivity" />
         <activity
             android:name=".ui.splash.SplashScreen"

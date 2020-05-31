@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.technawabs.covid_sampurn.R;
 import com.technawabs.covid_sampurn.data.model.helpline.StateHelpline;
 
@@ -59,7 +60,10 @@ public class HelplineListAdapter extends RecyclerView.Adapter<HelplineListAdapte
         @BindView(R.id.stateHelplineNumber)
         TextView stateHelplineNumber;
         @BindView(R.id.stateHelpline)
-        ImageView stateHelplineView;
+        LottieAnimationView stateHelplineView;
+        @BindView(R.id.helplineEmail)
+        LottieAnimationView helplineEmail;
+
 
         public HelplineViewHolder(@NonNull View itemView,
                                   @NonNull HelplineSelectedListener helplineSelectedListener) {
@@ -79,9 +83,11 @@ public class HelplineListAdapter extends RecyclerView.Adapter<HelplineListAdapte
         void bind(@NonNull StateHelpline stateHelpline) {
             this.stateHelpline = stateHelpline;
             if (stateHelpline.getName() == "Helpline Email") {
-                this.stateHelplineView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_email));
+                this.stateHelplineView.setAlpha(0f);
+                this.helplineEmail.setAlpha(1f);
             } else {
-                this.stateHelplineView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_call));
+                this.stateHelplineView.setAlpha(1f);
+                this.helplineEmail.setAlpha(0f);
             }
             this.stateName.setText(stateHelpline.getName());
             this.stateHelplineNumber.setText(stateHelpline.getHelplineNumber());

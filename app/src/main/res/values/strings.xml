@@ -26,9 +26,13 @@
     <string name="monthly_tab">Monthly</string>
     <string name="not_applicable">NA</string>
 
-    <string name="nav_header_title" translatable="false">TechNawabs Design Studio</string>
-    <string name="nav_header_subtitle">technawabs@gmail.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-
+    <string name="govtApp">ArogyaSetu</string>
+    <string name="govtText">Governement of India</string>
+    <string name="installed"><u>Already Installed</u></string>
+    <string name="download"><u>Download</u></string>
+    <string name="webLinks">Web Links</string>
+    <string name="ministryText">Government</string>
+    <string name="facebookText">Facebook</string>
+    <string name="twitterText">Twitter</string>
 
 </resources>
