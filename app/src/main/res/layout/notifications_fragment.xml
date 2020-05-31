@@ -74,8 +74,8 @@
                         <TextView
                             android:id="@+id/downloadOrInstalled"
                             android:layout_alignEnd="@+id/title"
-                            android:layout_marginEnd="60dp"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="35dp"
+                            android:layout_marginTop="7dp"
                             android:textColor="#2962FF"
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
@@ -84,8 +84,8 @@
 
                             <com.airbnb.lottie.LottieAnimationView
                                 android:id="@+id/appInstalled"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="2dp"
                                 android:scaleX="1.8"
@@ -97,8 +97,8 @@
 
                             <com.airbnb.lottie.LottieAnimationView
                                 android:id="@+id/playStore"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="2dp"
                                 android:scaleX="2"
@@ -159,7 +159,8 @@
                             android:orientation="horizontal"
                             android:paddingTop="16dp"
                             android:paddingBottom="16dp"
-                            android:weightSum="3">
+                            android:weightSum="3"
+                            android:layout_below="@id/webLinks">
 
                             <com.airbnb.lottie.LottieAnimationView
                                 android:id="@+id/webPage"
@@ -193,28 +194,29 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:paddingTop="16dp"
-                            android:paddingBottom="16dp"
                             android:weightSum="3"
                             android:layout_alignBottom="@id/linksLayout">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="48dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/ministryText"/>
+                                android:textAlignment="center"
+                                android:text="@string/ministryText" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="48dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/facebookText"/>
+                                android:textAlignment="center"
+                                android:text="@string/facebookText" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="48dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/twitterText"/>
+                                android:textAlignment="center"
+                                android:text="@string/twitterText" />
 
                         </LinearLayout>
 
