@@ -1,5 +1,6 @@
 package com.technawabs.covid_sampurn.ui.national;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,6 +53,8 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     LinearLayout confirmedGrowthUpView;
     @BindView(R.id.confirmed_growth_down)
     LinearLayout confirmedGrowthDownView;
+    @BindView(R.id.miniCnfGraph)
+    WebView miniConfirmedGraph;
     //    recovered
     @BindView(R.id.recovered_number)
     TextView recoveredNumberTextView;
@@ -157,6 +160,7 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
                             - Integer.parseInt(lastTimeData.totalDeceased)
                             - Integer.parseInt(lastTimeData.totalRecovered);
                     activeNumberTextView.setText(activeNumber+ "");
+                    drawMiniGraph();
 //                  compared confirmed
                     int compareConfirmed = Integer.parseInt(lastTimeData.totalConfirmed)
                             - Integer.parseInt(secondLastTimeData.totalConfirmed);
@@ -234,6 +238,71 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
                 }
             }
         });
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private void drawMiniGraph() {
+        String miniConfirm = "<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<head></head>\n" +
+                "<body>\n" +
+                "\t<canvas id=\"myAreaChart\" height=\"500\"></canvas>\n" +
+                "\t<script src=\"https://cdn.jsdelivr.net/npm/chart.js@2.9.3\"></script>\n" +
+                "\t<script>\n" +
+                "\t  var ctx = document.getElementById('myAreaChart').getContext('2d');\n" +
+                "\t  var chart = new Chart(ctx, {\n" +
+                "\t  type: 'line',\n" +
+                "\t\t\n" +
+                "\t  data: {\n" +
+                "\t\tlabels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],\n" +
+                "\t\tdatasets: [{\n" +
+                "\t\t\tbackgroundColor: \"rgba(172,194,132,0.4)\",\n" +
+                "\t\t\tborderColor: \"#ACC26D\",\n" +
+                "\t\t\tdata : [203,156,99,251,305,247,450],\n" +
+                "\t\t\thidden: false,\n" +
+                "\t\t}] \n" +
+                "\t},\n" +
+                "\t\t\t\t\t\t\n" +
+                "\toptions: {\n" +
+                "\t\tmaintainAspectRatio: false,\n" +
+                "\t\tspanGaps: false,\n" +
+                "\t\tlegend: {\n" +
+                "            display: false\n" +
+                "        },\n" +
+                "\t\telements: {\n" +
+                "\t\t\tline: {\n" +
+                "\t\t\t\ttension: 0.4\n" +
+                "\t\t\t}\n" +
+                "\t\t},\n" +
+                "\t\tscales: {\n" +
+                "\t\t\txAxes: [{\n" +
+                "\t\t\t\tgridLines: {\n" +
+                "\t\t\t\t\tdisplay:false\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t}],\n" +
+                "\t\t\tyAxes: [{\n" +
+                "\t\t\t\tgridLines: {\n" +
+                "\t\t\t\t\tdisplay:false\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\tticks: {\n" +
+                "\t\t\t\t\tdisplay: false\n" +
+                "\t\t\t\t}\t\n" +
+                "\t\t\t}]\n" +
+                "\t\t},\n" +
+                "\t\tplugins: {\n" +
+                "\t\t\tfiller: {\n" +
+                "\t\t\t\tpropagate: true\n" +
+                "\t\t\t}\n" +
+                "\t\t}\n" +
+                "\t}\n" +
+                "});\n" +
+                "</script>\n" +
+                "</body>\n" +
+                "</html>";
+
+        miniConfirmedGraph.getSettings().setJavaScriptEnabled(true);
+        miniConfirmedGraph.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        miniConfirmedGraph.loadDataWithBaseURL(null, miniConfirm, "text/html", "UTF-8", null);
     }
 
     private void tabClickLogic() {

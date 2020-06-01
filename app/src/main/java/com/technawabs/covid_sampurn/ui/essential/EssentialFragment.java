@@ -22,8 +22,8 @@ import butterknife.BindView;
 
 public class EssentialFragment extends BaseFragment {
 
-    @BindView(R.id.text_notifications)
-    TextView textView;
+//    @BindView(R.id.text_notifications)
+//    TextView textView;
     @Inject
     ViewModelFactory viewModelFactory;
     private EssentialViewModel essentialViewModel;
@@ -41,12 +41,12 @@ public class EssentialFragment extends BaseFragment {
     }
 
     private void observableViewModel() {
-        essentialViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                textView.setText(s);
-            }
-        });
+//        essentialViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(String s) {
+//                textView.setText(s);
+//            }
+//        });
     }
 
 }

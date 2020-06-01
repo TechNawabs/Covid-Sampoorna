@@ -22,8 +22,8 @@ import butterknife.BindView;
 
 public class DemographicFragment extends BaseFragment {
 
-    @BindView(R.id.text_notifications)
-    TextView textView;
+//    @BindView(R.id.text_notifications)
+//    TextView textView;
     @Inject
     ViewModelFactory viewModelFactory;
     private DemographicViewModel demographicViewModel;
@@ -41,12 +41,12 @@ public class DemographicFragment extends BaseFragment {
     }
 
     private void observableViewModel() {
-        demographicViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                textView.setText(s);
-            }
-        });
+//        demographicViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(String s) {
+//                textView.setText(s);
+//            }
+//        });
     }
 
 }

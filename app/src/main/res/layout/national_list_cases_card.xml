@@ -133,10 +133,17 @@
                                 </LinearLayout>
                             </LinearLayout>
 
-                            <LinearLayout
+                            <!--LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="fill_parent"
-                                android:layout_weight="1" />
+                                android:layout_weight="1">
+
+                            </LinearLayout-->
+
+                            <WebView
+                                android:id="@+id/miniCnfGraph"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp" />
 
                         </LinearLayout>
 

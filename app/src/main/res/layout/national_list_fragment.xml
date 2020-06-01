@@ -104,8 +104,7 @@
                 <WebView
                     android:id="@+id/myView"
                     android:layout_width="match_parent"
-                    android:layout_height="600dp"
-                    android:layout_marginBottom="60dp" />
+                    android:layout_height="200dp" />
             </LinearLayout>
 
         </LinearLayout>

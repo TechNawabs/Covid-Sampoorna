@@ -21,9 +21,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 
 public class AdviceFragment extends BaseFragment {
+    //    @BindView(R.id.text_notifications)
+    //    TextView textView;
 
-    @BindView(R.id.text_advice)
-    TextView textView;
     @Inject
     ViewModelFactory viewModelFactory;
     private AdviceViewModel adviceViewModel;
@@ -41,12 +41,12 @@ public class AdviceFragment extends BaseFragment {
     }
 
     private void observableViewModel() {
-        adviceViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                textView.setText(s);
-            }
-        });
+//        adviceViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(String s) {
+//                textView.setText(s);
+//            }
+//        });
     }
 
 }
