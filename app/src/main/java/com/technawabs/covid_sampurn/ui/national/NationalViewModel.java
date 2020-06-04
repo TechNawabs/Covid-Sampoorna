@@ -8,8 +8,12 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 
+import com.technawabs.covid_sampurn.data.model.national.NationalTimeData;
 import com.technawabs.covid_sampurn.data.model.national.NationalTimeStats;
 import com.technawabs.covid_sampurn.data.rest.national.NationalRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -67,7 +71,23 @@ public class NationalViewModel extends ViewModel {
                 }));
     }
 
-    public void drawDailyChart(@NonNull WebView myView) {
+    public void drawDailyChart(@NonNull WebView myView, @NonNull List<NationalTimeData> nationalTimeDataList) {
+        List<String> dailyConfirmed = new ArrayList<String>();
+        List<String> dailyDeceased = new ArrayList<String>();
+        List<String> dailyRecovered = new ArrayList<String>();
+        List<String> days = new ArrayList<>();
+        for(NationalTimeData nationalTimeData: nationalTimeResponse.getValue().getNationalTimeDataList()) {
+            dailyConfirmed.add(nationalTimeData.getDailyConfirmed());
+            dailyDeceased.add(nationalTimeData.getDailyDeceased());
+            dailyRecovered.add(nationalTimeData.getDailyRecovered());
+        }
+        for(int i=0;i<nationalTimeResponse.getValue().getNationalTimeDataList().size();i++){
+            days.add(i+"");
+        }
+        String dailyConfirmedData = dailyConfirmed.toString();
+        String dailyDeceasedData = dailyDeceased.toString();
+        String dailyRecoveredData = dailyRecovered.toString();
+
         String content = "<!DOCTYPE HTML>\n" +
                 "<html>\n" +
                 "<head></head>\n" +
@@ -79,17 +99,25 @@ public class NationalViewModel extends ViewModel {
                 "var chart = new Chart(ctx, {\n" +
                 "type: 'line',\n" +
                 "data: {\n" +
-                "labels: [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\"],\n" +
-                "datasets: [{\n" +
-                "label: \"My First dataset\",\n" +
+                "labels: " +
+                days +
+                ",\n" +
+                "datasets: [" +
+                "{\n" +
+                "label: \"Confirmed\",\n" +
                 "backgroundColor: \"rgba(255, 128, 171, 0.4)\",\n" +
-                "data: [65, 59, 80, 81, 56, 55, 40]\n" +
+                "data: " +
+                dailyConfirmedData +
+                "\n" +
                 "}, \n" +
                 "{\n" +
-                "label: \"My Second dataset\",\n" +
+                "label: \"Recovered\",\n" +
                 "backgroundColor: \"rgba(179, 136, 255, 0.6)\",\n" +
-                "data: [28, 48, 40, 19, 86, 27, 90]\n" +
-                "}]\n" +
+                "data: " +
+                dailyDeceasedData +
+                "\n" +
+                "}" +
+                "]\n" +
                 "},\n" +
                 "options: {\n" +
                 "scales: {\n" +

@@ -141,7 +141,7 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
 //        graphViewTabs.setupWithViewPager(viewPager);
         tabClickLogic();
         observableViewModel();
-        nationalViewModel.drawDailyChart(myView);
+//        nationalViewModel.drawDailyChart(myView);
     }
 
     @Override
@@ -218,6 +218,7 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
                         activeGrowthUpView.setVisibility(View.VISIBLE);
                         activePercentUpTextView.setText(compareActive+ "");
                     }
+                    nationalViewModel.drawDailyChart(myView, nationalTimeStats.getNationalTimeDataList());
                 }
             }
         });
