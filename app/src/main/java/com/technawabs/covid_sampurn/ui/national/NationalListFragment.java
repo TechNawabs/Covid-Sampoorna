@@ -1,6 +1,7 @@
 package com.technawabs.covid_sampurn.ui.national;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,8 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     LinearLayout activeGrowthUpView;
     @BindView(R.id.active_growth_down)
     LinearLayout activeGrowthDownView;
+    @BindView(R.id.miniActvGraph)
+    WebView miniActiveGraph;
     //    confirmed
     @BindView(R.id.confirmed_number)
     TextView confirmedNumberTextView;
@@ -66,6 +69,8 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     LinearLayout recoveredGrowthUpView;
     @BindView(R.id.recovered_growth_down)
     LinearLayout recoveredGrowthDownView;
+    @BindView(R.id.miniRecvGraph)
+    WebView miniRecoveredGraph;
     //    deceased
     @BindView(R.id.deceased_number)
     TextView deceasedNumberTextView;
@@ -77,6 +82,8 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
     LinearLayout deceasedGrowthUpView;
     @BindView(R.id.deceased_growth_down)
     LinearLayout deceasedGrowthDownView;
+    @BindView(R.id.miniDescGraph)
+    WebView miniDeceasedGraph;
     //    Tabs
 //    @BindView(R.id.view_pager)
 //    ViewPager viewPager;
@@ -242,67 +249,130 @@ public class NationalListFragment extends BaseFragment implements NationalSelect
 
     @SuppressLint("SetJavaScriptEnabled")
     private void drawMiniGraph() {
-        String miniConfirm = "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "<head></head>\n" +
+        String miniConfirm = "<html>\n" +
                 "<body>\n" +
-                "\t<canvas id=\"myAreaChart\" height=\"500\"></canvas>\n" +
-                "\t<script src=\"https://cdn.jsdelivr.net/npm/chart.js@2.9.3\"></script>\n" +
-                "\t<script>\n" +
-                "\t  var ctx = document.getElementById('myAreaChart').getContext('2d');\n" +
-                "\t  var chart = new Chart(ctx, {\n" +
-                "\t  type: 'line',\n" +
-                "\t\t\n" +
-                "\t  data: {\n" +
-                "\t\tlabels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],\n" +
-                "\t\tdatasets: [{\n" +
-                "\t\t\tbackgroundColor: \"rgba(172,194,132,0.4)\",\n" +
-                "\t\t\tborderColor: \"#ACC26D\",\n" +
-                "\t\t\tdata : [203,156,99,251,305,247,450],\n" +
-                "\t\t\thidden: false,\n" +
-                "\t\t}] \n" +
-                "\t},\n" +
-                "\t\t\t\t\t\t\n" +
-                "\toptions: {\n" +
-                "\t\tmaintainAspectRatio: false,\n" +
-                "\t\tspanGaps: false,\n" +
-                "\t\tlegend: {\n" +
-                "            display: false\n" +
-                "        },\n" +
-                "\t\telements: {\n" +
-                "\t\t\tline: {\n" +
-                "\t\t\t\ttension: 0.4\n" +
-                "\t\t\t}\n" +
-                "\t\t},\n" +
-                "\t\tscales: {\n" +
-                "\t\t\txAxes: [{\n" +
-                "\t\t\t\tgridLines: {\n" +
-                "\t\t\t\t\tdisplay:false\n" +
-                "\t\t\t\t}\n" +
-                "\t\t\t}],\n" +
-                "\t\t\tyAxes: [{\n" +
-                "\t\t\t\tgridLines: {\n" +
-                "\t\t\t\t\tdisplay:false\n" +
-                "\t\t\t\t},\n" +
-                "\t\t\t\tticks: {\n" +
-                "\t\t\t\t\tdisplay: false\n" +
-                "\t\t\t\t}\t\n" +
-                "\t\t\t}]\n" +
-                "\t\t},\n" +
-                "\t\tplugins: {\n" +
-                "\t\t\tfiller: {\n" +
-                "\t\t\t\tpropagate: true\n" +
-                "\t\t\t}\n" +
-                "\t\t}\n" +
-                "\t}\n" +
-                "});\n" +
-                "</script>\n" +
+                "\t<svg width=\"150\" height=\"200\">\n" +
+                "\t\t<path \n" +
+                "\t\t\tid=\"my-path\"\n" +
+                "\t\t\tfill=\"none\" \n" +
+                "\t\t\tstroke=\"#ff073a99\" \n" +
+                "\t\t\tstroke-width=\"2.5\"\t\n" +
+                "\t\t\ttranslate\n" +
+                "\t\t\ttransform=\"scale(1,2) translate(0 -15)\"\n" +
+                "\t\t\td=\"M5,34.37622496804431C6.5,34.238282914358756,8,34.1003408606732,9.5,33.88708990200256C11,33.673838943331916,12.5,33.096719216020446,14,33.096719216020446C15.5,33.096719216020446,17,33.64252236898168,18.5,33.64252236898168C20,33.64252236898168,21.5,31.208777162334886,23,30.701746910950146C24.5,30.194716659565405,26,29.941201533873034,27.5,29.941201533873034C29,29.941201533873034,30.5,31.1968470387729,32,31.1968470387729C33.5,31.1968470387729,35,26.645504899872172,36.5,26.645504899872172C38,26.645504899872172,39.5,27.93992330634853,41,27.93992330634853C42.5,27.93992330634853,44,27.44184064763528,45.5,27.036216446527483C47,26.630592245419685,48.5,25.762675756284622,50,25.50617809970175C51.5,25.249680443118876,53.00000000000001,25.377929271410313,54.50000000000001,25.12143161482744C56.00000000000001,24.864933958244567,57.5,23.791222837665103,59,23.791222837665103C60.5,23.791222837665103,62,25.271552336315864,63.5,25.870046868342566C65,26.46854140036927,66.5,27.38219002982531,68,27.38219002982531C69.5,27.38219002982531,71,23.4044879988638,72.5,23.388581167447807C74,23.372674336031814,75.5,23.380627751739812,77,23.36472092032382C78.5,23.348814088907826,80,21.177531600624913,81.5,20.728163613123137C83,20.27879562562136,84.5,20.377716233489558,86,20.05411163187047C87.5,19.73050703025138,89,18.78653600340861,90.5,18.78653600340861C92,18.78653600340861,93.5,20.376224968044312,95,21.965913932680017\" stroke-dasharray=\"98.95734405517578\" stroke-dashoffset=\"0\">\n" +
+                "\t\t\t<animate attributeName=\"stroke-dashoffset\" values=\"98.95734405517578;0\" dur=\"2s\" repeatCount=\"once\" />\n" +
+                "\t\t</path>\t\n" +
+                "\t\t<circle \n" +
+                "\t\t\tfill=\"#ff073a\" \n" +
+                "\t\t\tr=\"2\" \n" +
+                "\t\t\tcx=\"95\" \n" +
+                "\t\t\tcy=\"13.965913932680017\"\t\n" +
+                "\t\t\tstyle=\"opacity: 1\"\n" +
+                "\t\t\t/>\n" +
+                "</svg>\n" +
+                "</body>\n" +
+                "</html>";
+        
+        miniConfirmedGraph.getSettings().setJavaScriptEnabled(true);
+        miniConfirmedGraph.setBackgroundColor(Color.TRANSPARENT);
+        miniConfirmedGraph.setVerticalScrollBarEnabled(false);
+        miniConfirmedGraph.setHorizontalScrollBarEnabled(false);
+        miniConfirmedGraph.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        miniConfirmedGraph.loadDataWithBaseURL(null, miniConfirm, "text/html", "UTF-8", null);
+
+        String miniActive = "<html>\n" +
+                "<body>\n" +
+                "\t<svg width=\"150\" height=\"200\">\n" +
+                "\t\t<path \n" +
+                "\t\t\tfill=\"none\" \n" +
+                "\t\t\tstroke=\"#007bff99\" \n" +
+                "\t\t\tstroke-width=\"2.5\"\n" +
+                "\t\t\ttransform=\"scale(1,1) translate(0 -10)\"\n" +
+                "\t\t\td=\"M5,39.145291861951435C6.5,39.69556881124841,8,40.24584576054537,9.5,40.24584576054537C11,40.24584576054537,12.5,39.53898593949723,14,38.33702599062633C15.5,37.13506604175543,17,33.03408606731998,18.5,33.03408606731998C20,33.03408606731998,21.5,37.31898878000283,23,37.43033659991478C24.5,37.54168441982673,26,37.59735832978271,27.5,37.59735832978271C29,37.59735832978271,30.5,36.11802300809544,32,35.95696634000852C33.5,35.7959096719216,35,35.75117170856412,36.5,35.71538133787814C38,35.67959096719216,39.5,35.69748615253515,41,35.66169578184917C42.5,35.62590541116319,44,35.21729867916489,45.5,35.21729867916489C47,35.21729867916489,48.5,37.317000426075836,50,37.317000426075836C51.5,37.317000426075836,53.00000000000001,35.2023860247124,54.50000000000001,35.2023860247124C56.00000000000001,35.2023860247124,57.5,36.016616957818485,59,36.016616957818485C60.5,36.016616957818485,62,34.30762675756284,63.5,34.30762675756284C65,34.30762675756284,66.5,34.55219429058372,68,34.75798892202812C69.5,34.96378355347252,71,35.54239454622923,72.5,35.54239454622923C74,35.54239454622923,75.5,10,77,10C78.5,10,80,32.16616957818491,81.5,32.16616957818491C83,32.16616957818491,84.5,30.30208777162335,86,30.30208777162335C87.5,30.30208777162335,89,33.391989774179805,90.5,33.391989774179805C92,33.391989774179805,93.5,32.43907115466553,95,31.486152535151255\" \n" +
+                "\t\t\tstroke-dasharray=\"139.21029663085938\" \n" +
+                "\t\t\tstroke-dashoffset=\"0\">\n" +
+                "\t\t\t<animate attributeName=\"stroke-dashoffset\" values=\"139.21029663085938;0\" dur=\"2s\" repeatCount=\"once\" />\n" +
+                "\t\t</path>\n" +
+                "\t\t<circle \n" +
+                "\t\t\tfill=\"#007bff\" \n" +
+                "\t\t\tr=\"2.5\" \n" +
+                "\t\t\tcx=\"95\" \n" +
+                "\t\t\tcy=\"22.486152535151255\" \n" +
+                "\t\t\tstyle=\"opacity: 1;\">\n" +
+                "\t\t</circle>\n" +
+                "\t</svg>\n" +
                 "</body>\n" +
                 "</html>";
 
-        miniConfirmedGraph.getSettings().setJavaScriptEnabled(true);
-        miniConfirmedGraph.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        miniConfirmedGraph.loadDataWithBaseURL(null, miniConfirm, "text/html", "UTF-8", null);
+        miniActiveGraph.getSettings().setJavaScriptEnabled(true);
+        miniActiveGraph.setBackgroundColor(Color.TRANSPARENT);
+        miniActiveGraph.setVerticalScrollBarEnabled(false);
+        miniActiveGraph.setHorizontalScrollBarEnabled(false);
+        miniActiveGraph.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        miniActiveGraph.loadDataWithBaseURL(null, miniActive, "text/html", "UTF-8", null);
+
+        String miniRecovered = "<html>\n" +
+                "<body>\n" +
+                "\t<svg width=\"150\" height=\"200\">\n" +
+                "\t\t<path \n" +
+                "\t\t\tfill=\"none\" \n" +
+                "\t\t\tstroke=\"#28a74599\" \n" +
+                "\t\t\tstroke-width=\"2.5\"\n" +
+                "\t\t\ttransform=\"scale(1,1) translate(0 -10)\"\n" +
+                "\t\t\td=\"M5,39.145291861951435C6.5,39.69556881124841,8,40.24584576054537,9.5,40.24584576054537C11,40.24584576054537,12.5,39.53898593949723,14,38.33702599062633C15.5,37.13506604175543,17,33.03408606731998,18.5,33.03408606731998C20,33.03408606731998,21.5,37.31898878000283,23,37.43033659991478C24.5,37.54168441982673,26,37.59735832978271,27.5,37.59735832978271C29,37.59735832978271,30.5,36.11802300809544,32,35.95696634000852C33.5,35.7959096719216,35,35.75117170856412,36.5,35.71538133787814C38,35.67959096719216,39.5,35.69748615253515,41,35.66169578184917C42.5,35.62590541116319,44,35.21729867916489,45.5,35.21729867916489C47,35.21729867916489,48.5,37.317000426075836,50,37.317000426075836C51.5,37.317000426075836,53.00000000000001,35.2023860247124,54.50000000000001,35.2023860247124C56.00000000000001,35.2023860247124,57.5,36.016616957818485,59,36.016616957818485C60.5,36.016616957818485,62,34.30762675756284,63.5,34.30762675756284C65,34.30762675756284,66.5,34.55219429058372,68,34.75798892202812C69.5,34.96378355347252,71,35.54239454622923,72.5,35.54239454622923C74,35.54239454622923,75.5,10,77,10C78.5,10,80,32.16616957818491,81.5,32.16616957818491C83,32.16616957818491,84.5,30.30208777162335,86,30.30208777162335C87.5,30.30208777162335,89,33.391989774179805,90.5,33.391989774179805C92,33.391989774179805,93.5,32.43907115466553,95,31.486152535151255\" \n" +
+                "\t\t\tstroke-dasharray=\"139.21029663085938\" \n" +
+                "\t\t\tstroke-dashoffset=\"0\">\n" +
+                "\t\t\t<animate attributeName=\"stroke-dashoffset\" values=\"139.21029663085938;0\" dur=\"2s\" repeatCount=\"once\" />\n" +
+                "\t\t</path>\n" +
+                "\t\t<circle \n" +
+                "\t\t\tfill=\"#28a745\" \n" +
+                "\t\t\tr=\"2.5\" \n" +
+                "\t\t\tcx=\"95\" \n" +
+                "\t\t\tcy=\"22.486152535151255\" \n" +
+                "\t\t\tstyle=\"opacity: 1;\">\n" +
+                "\t\t</circle>\n" +
+                "\t</svg>\n" +
+                "</body>\n" +
+                "</html>";
+
+        miniRecoveredGraph.getSettings().setJavaScriptEnabled(true);
+        miniRecoveredGraph.setBackgroundColor(Color.TRANSPARENT);
+        miniRecoveredGraph.setVerticalScrollBarEnabled(false);
+        miniRecoveredGraph.setHorizontalScrollBarEnabled(false);
+        miniRecoveredGraph.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        miniRecoveredGraph.loadDataWithBaseURL(null, miniRecovered, "text/html", "UTF-8", null);
+
+        String miniDeceased = "<html>\n" +
+                "<body>\n" +
+                "\t<svg width=\"150\" height=\"200\">\n" +
+                "\t\t<path \n" +
+                "\t\t\tid=\"my-path\"\n" +
+                "\t\t\tfill=\"none\" \n" +
+                "\t\t\tstroke=\"#8ca191\" \n" +
+                "\t\t\tstroke-width=\"2.5\"\t\n" +
+                "\t\t\ttranslate\n" +
+                "\t\t\ttransform=\"scale(1,2) translate(0 -15)\"\n" +
+                "\t\t\td=\"M5,34.37622496804431C6.5,34.238282914358756,8,34.1003408606732,9.5,33.88708990200256C11,33.673838943331916,12.5,33.096719216020446,14,33.096719216020446C15.5,33.096719216020446,17,33.64252236898168,18.5,33.64252236898168C20,33.64252236898168,21.5,31.208777162334886,23,30.701746910950146C24.5,30.194716659565405,26,29.941201533873034,27.5,29.941201533873034C29,29.941201533873034,30.5,31.1968470387729,32,31.1968470387729C33.5,31.1968470387729,35,26.645504899872172,36.5,26.645504899872172C38,26.645504899872172,39.5,27.93992330634853,41,27.93992330634853C42.5,27.93992330634853,44,27.44184064763528,45.5,27.036216446527483C47,26.630592245419685,48.5,25.762675756284622,50,25.50617809970175C51.5,25.249680443118876,53.00000000000001,25.377929271410313,54.50000000000001,25.12143161482744C56.00000000000001,24.864933958244567,57.5,23.791222837665103,59,23.791222837665103C60.5,23.791222837665103,62,25.271552336315864,63.5,25.870046868342566C65,26.46854140036927,66.5,27.38219002982531,68,27.38219002982531C69.5,27.38219002982531,71,23.4044879988638,72.5,23.388581167447807C74,23.372674336031814,75.5,23.380627751739812,77,23.36472092032382C78.5,23.348814088907826,80,21.177531600624913,81.5,20.728163613123137C83,20.27879562562136,84.5,20.377716233489558,86,20.05411163187047C87.5,19.73050703025138,89,18.78653600340861,90.5,18.78653600340861C92,18.78653600340861,93.5,20.376224968044312,95,21.965913932680017\" stroke-dasharray=\"98.95734405517578\" stroke-dashoffset=\"0\">\n" +
+                "\t\t\t<animate attributeName=\"stroke-dashoffset\" values=\"98.95734405517578;0\" dur=\"2s\" repeatCount=\"once\" />\n" +
+                "\t\t</path>\t\n" +
+                "\t\t<circle \n" +
+                "\t\t\tfill=\"#454746\" \n" +
+                "\t\t\tr=\"2\" \n" +
+                "\t\t\tcx=\"95\" \n" +
+                "\t\t\tcy=\"13.965913932680017\"\t\n" +
+                "\t\t\tstyle=\"opacity: 1\"\n" +
+                "\t\t\t/>\n" +
+                "</svg>\n" +
+                "</body>\n" +
+                "</html>";
+
+        miniDeceasedGraph.getSettings().setJavaScriptEnabled(true);
+        miniDeceasedGraph.setBackgroundColor(Color.TRANSPARENT);
+        miniDeceasedGraph.setVerticalScrollBarEnabled(false);
+        miniDeceasedGraph.setHorizontalScrollBarEnabled(false);
+        miniDeceasedGraph.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        miniDeceasedGraph.loadDataWithBaseURL(null, miniDeceased, "text/html", "UTF-8", null);
+
     }
 
     private void tabClickLogic() {
