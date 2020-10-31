@@ -5,12 +5,13 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     public Animator animator;
+    public float speed;
 
     // Update is called once per frame
     void Update()
     {
-        animator.setFloat("Horizontal", Input.GetAxis("Horizontal"));
+        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         Vector3 horizontal = new Vector3 (Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        transform.position = transform.position + horizontal * Time.deltaTime;        
+        transform.position = transform.position + horizontal * Time.deltaTime * speed;        
     }
 }
