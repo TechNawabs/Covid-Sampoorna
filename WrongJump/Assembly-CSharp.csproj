@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\movement.cs" />
-     <Compile Include="Assets\Scripts\startingAnimation.cs" />
+     <Compile Include="Assets\Scripts\moveAway.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Tools/Unity/Editor/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
