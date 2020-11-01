@@ -36,16 +36,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\movement.cs" />
-     <Compile Include="Assets\Scripts\moveAway.cs" />
      <Compile Include="Assets\Scripts\ExitGame.cs" />
      <Compile Include="Assets\Scripts\LikeOnFb.cs" />
      <Compile Include="Assets\Scripts\PlayLevel.cs" />
      <Compile Include="Assets\Scripts\OpenCredits.cs" />
      <Compile Include="Assets\Scripts\LikeOnGoogle.cs" />
+     <Compile Include="Assets\Scripts\movement.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
+     <Compile Include="Assets\Scripts\moveAway.cs" />
      <Compile Include="Assets\Scripts\PlayGame.cs" />
+     <Compile Include="Assets\Scripts\MovingBackground.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow1.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Tools/Unity/Editor/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
