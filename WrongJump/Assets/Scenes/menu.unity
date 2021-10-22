@@ -433,6 +433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _crren1
       objectReference: {fileID: 0}
+    - target: {fileID: 7046030933266830452, guid: b4f9fe009c494dc4db6a5d1e553dc548,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7046030933266830454, guid: b4f9fe009c494dc4db6a5d1e553dc548,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -2454,6 +2459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: _anvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129881596791008089, guid: c0681494054ef714ca0c4df8dee8c3fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3129881596791008093, guid: c0681494054ef714ca0c4df8dee8c3fc,
         type: 3}
